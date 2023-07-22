@@ -31,3 +31,36 @@ D:\FPT University\Ki_8\PRN231\Asignment\Assignment1\Assignment01Solution_Student
 D:\FPT University\Ki_8\PRN231\Asignment\Assignment1\Assignment01Solution_StudentCode\eStoreClient\bin\Debug\System.Memory.xml
 D:\FPT University\Ki_8\PRN231\Asignment\Assignment1\Assignment01Solution_StudentCode\eStoreClient\bin\Debug\System.Numerics.Vectors.xml
 D:\FPT University\Ki_8\PRN231\Asignment\Assignment1\Assignment01Solution_StudentCode\eStoreClient\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\PRN231\Assignment01Solution_StudentCode\eStoreClient\bin\Debug\appsettings.json
+D:\PRN231\Assignment01Solution_StudentCode\eStoreClient\bin\Debug\eStoreClient.exe.config
+D:\PRN231\Assignment01Solution_StudentCode\eStoreClient\bin\Debug\eStoreClient.exe
+D:\PRN231\Assignment01Solution_StudentCode\eStoreClient\bin\Debug\eStoreClient.pdb
+D:\PRN231\Assignment01Solution_StudentCode\eStoreClient\bin\Debug\EntityFramework.dll
+D:\PRN231\Assignment01Solution_StudentCode\eStoreClient\bin\Debug\EntityFramework.SqlServer.dll
+D:\PRN231\Assignment01Solution_StudentCode\eStoreClient\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\PRN231\Assignment01Solution_StudentCode\eStoreClient\bin\Debug\Microsoft.Extensions.Primitives.dll
+D:\PRN231\Assignment01Solution_StudentCode\eStoreClient\bin\Debug\Newtonsoft.Json.dll
+D:\PRN231\Assignment01Solution_StudentCode\eStoreClient\bin\Debug\System.Buffers.dll
+D:\PRN231\Assignment01Solution_StudentCode\eStoreClient\bin\Debug\System.Memory.dll
+D:\PRN231\Assignment01Solution_StudentCode\eStoreClient\bin\Debug\System.Numerics.Vectors.dll
+D:\PRN231\Assignment01Solution_StudentCode\eStoreClient\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\PRN231\Assignment01Solution_StudentCode\eStoreClient\bin\Debug\EntityFramework.xml
+D:\PRN231\Assignment01Solution_StudentCode\eStoreClient\bin\Debug\EntityFramework.SqlServer.xml
+D:\PRN231\Assignment01Solution_StudentCode\eStoreClient\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.xml
+D:\PRN231\Assignment01Solution_StudentCode\eStoreClient\bin\Debug\Microsoft.Extensions.Primitives.xml
+D:\PRN231\Assignment01Solution_StudentCode\eStoreClient\bin\Debug\Newtonsoft.Json.xml
+D:\PRN231\Assignment01Solution_StudentCode\eStoreClient\bin\Debug\System.Buffers.xml
+D:\PRN231\Assignment01Solution_StudentCode\eStoreClient\bin\Debug\System.Memory.xml
+D:\PRN231\Assignment01Solution_StudentCode\eStoreClient\bin\Debug\System.Numerics.Vectors.xml
+D:\PRN231\Assignment01Solution_StudentCode\eStoreClient\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\PRN231\Assignment01Solution_StudentCode\eStoreClient\obj\Debug\eStoreClient.csproj.AssemblyReference.cache
+D:\PRN231\Assignment01Solution_StudentCode\eStoreClient\obj\Debug\eStoreClient.csproj.SuggestedBindingRedirects.cache
+D:\PRN231\Assignment01Solution_StudentCode\eStoreClient\obj\Debug\eStoreClient.eStoreClient.resources
+D:\PRN231\Assignment01Solution_StudentCode\eStoreClient\obj\Debug\eStoreClient.LoginForm.resources
+D:\PRN231\Assignment01Solution_StudentCode\eStoreClient\obj\Debug\eStoreClient.Properties.Resources.resources
+D:\PRN231\Assignment01Solution_StudentCode\eStoreClient\obj\Debug\eStoreClient.UserForm.resources
+D:\PRN231\Assignment01Solution_StudentCode\eStoreClient\obj\Debug\eStoreClient.csproj.GenerateResource.cache
+D:\PRN231\Assignment01Solution_StudentCode\eStoreClient\obj\Debug\eStoreClient.csproj.CoreCompileInputs.cache
+D:\PRN231\Assignment01Solution_StudentCode\eStoreClient\obj\Debug\eStoreClient.csproj.CopyComplete
+D:\PRN231\Assignment01Solution_StudentCode\eStoreClient\obj\Debug\eStoreClient.exe
+D:\PRN231\Assignment01Solution_StudentCode\eStoreClient\obj\Debug\eStoreClient.pdb
