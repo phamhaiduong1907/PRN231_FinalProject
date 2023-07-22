@@ -18,5 +18,9 @@ namespace eStoreClient
             CenterToParent();
         }
 
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

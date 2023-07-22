@@ -1,21 +1,12 @@
-﻿using eStoreClient.Models;
-using eStoreClient.Repository;
+﻿using eStoreClient.Repository;
 using Microsoft.Extensions.Configuration;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.Entity;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
+using System.Net;
+using System.Net.Http;
+using System.Runtime.Serialization.Json;
 using System.Windows.Forms;
-
+using System.Text.Json;
 
 namespace eStoreClient
 {
@@ -51,20 +42,30 @@ namespace eStoreClient
         private void btnLoginClick_Click(object sender, EventArgs e)
         {
             eStoreClient eStoreClient = new eStoreClient();
-            UserForm userForm = new UserForm(); 
-            string json = File.ReadAllText("D:\\FPT University\\Ki_8\\PRN231\\Project\\PRN231_FinalProject\\eStoreClient\\appsettings.json");
+            UserForm userForm = new UserForm();
+            //string json = File.ReadAllText("D:\\FPT University\\Ki_8\\PRN231\\Project\\PRN231_FinalProject\\eStoreClient\\appsettings.json");
 
-            DefaultAccount defaultAccount = JsonConvert.DeserializeObject<DefaultAccount>(json);
+            //DefaultAccount defaultAccount = JsonConvert.DeserializeObject<DefaultAccount>(json);
 
-            string emailA = defaultAccount.Email;
-            string passwordA = defaultAccount.Password;
-            string role = defaultAccount.Role;
+            var config = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", true, true)
+                .Build();
 
-            String username, password;
+            string emailA = config["admin:email"];
+            string passwordA = config["admin:password"];
+            string role = config["admin:role"];
+
+            string username, password;
             username = txtUsername.Text;
             password = txtPassword.Text;
-            
-            var memberAccount = GetMember(username, password);
+
+            string link = $"http://localhost:5241/api/default/searchmemberbyemail/{username}/{password}";
+            HttpClient client = new HttpClient();
+            string result = client.GetAsync(link).Result.Content.ReadAsStringAsync().Result;
+            Models.Member memberAccount = JsonSerializer.Deserialize<Models.Member>
+                (result, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+            MessageBox.Show(result);
 
             if (memberAccount != null) {
                 this.Hide();

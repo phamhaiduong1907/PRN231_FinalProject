@@ -47,9 +47,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnPaymentUser = new System.Windows.Forms.Button();
             this.dgvOrderMember = new System.Windows.Forms.DataGridView();
             this.label13 = new System.Windows.Forms.Label();
-            this.btnPaymentUser = new System.Windows.Forms.Button();
             this.tblUserInformation.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMemberUser)).BeginInit();
@@ -257,6 +257,17 @@
             this.tabPage2.Text = "Order User Information";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // btnPaymentUser
+            // 
+            this.btnPaymentUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPaymentUser.Location = new System.Drawing.Point(619, 147);
+            this.btnPaymentUser.Name = "btnPaymentUser";
+            this.btnPaymentUser.Size = new System.Drawing.Size(162, 53);
+            this.btnPaymentUser.TabIndex = 20;
+            this.btnPaymentUser.Text = "Payment";
+            this.btnPaymentUser.UseVisualStyleBackColor = true;
+            this.btnPaymentUser.Click += new System.EventHandler(this.btnPaymentOrderClick);
+            // 
             // dgvOrderMember
             // 
             this.dgvOrderMember.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -278,17 +289,6 @@
             this.label13.Size = new System.Drawing.Size(77, 32);
             this.label13.TabIndex = 18;
             this.label13.Text = "User";
-            // 
-            // btnPaymentUser
-            // 
-            this.btnPaymentUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPaymentUser.Location = new System.Drawing.Point(619, 147);
-            this.btnPaymentUser.Name = "btnPaymentUser";
-            this.btnPaymentUser.Size = new System.Drawing.Size(162, 53);
-            this.btnPaymentUser.TabIndex = 20;
-            this.btnPaymentUser.Text = "Payment";
-            this.btnPaymentUser.UseVisualStyleBackColor = true;
-            this.btnPaymentUser.Click += new System.EventHandler(this.btnPaymentOrderClick);
             // 
             // UserForm
             // 

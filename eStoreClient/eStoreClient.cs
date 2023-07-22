@@ -1,5 +1,5 @@
 ﻿using eStoreClient.Repository;
-using Newtonsoft.Json;
+using System.Text.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -9,6 +9,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,34 +33,31 @@ namespace eStoreClient
         }
         public void LoadMember()
         {
-            string link = "http://localhost/sales/api/default/listmember";
-            WebResponse res;
-            HttpWeb(link, out res);
-            DataContractJsonSerializer js = new DataContractJsonSerializer(typeof(Models.Member[]));
-            object data = js.ReadObject(res.GetResponseStream());
-            Models.Member[] members = data as Models.Member[];
+            string link = "http://localhost:5241/api/default/listmember";
+            HttpClient client = new HttpClient();
+            string result = client.GetAsync(link).Result.Content.ReadAsStringAsync().Result;
+            Models.Member[] members = JsonSerializer.Deserialize<Models.Member[]>
+                (result, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
             dgvListMember.DataSource = members;
         }
 
         public void LoadProduct()
         {
-            string link = "http://localhost/sales/api/default/listProduct";
-            WebResponse res;
-            HttpWeb(link, out res);
-            DataContractJsonSerializer js = new DataContractJsonSerializer(typeof(Models.Product[]));
-            object data = js.ReadObject(res.GetResponseStream());
-            Models.Product[] products = data as Models.Product[];
+            string link = "http://localhost:5241/api/default/listProduct";
+            HttpClient client = new HttpClient();
+            string result = client.GetAsync(link).Result.Content.ReadAsStringAsync().Result;
+            Models.Product[] products = JsonSerializer.Deserialize<Models.Product[]>
+                (result, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
             dgvListProduct.DataSource = products;
         }
 
         public void LoadOrder()
         {          
-            string link = "http://localhost/sales/api/default/listorder";
-            WebResponse res;
-            HttpWeb(link, out res);
-            DataContractJsonSerializer js = new DataContractJsonSerializer(typeof(Models.Order[]));
-            object data = js.ReadObject(res.GetResponseStream());           
-            Models.Order[] orders = data as Models.Order[];
+            string link = "http://localhost:5241/api/default/listorder";
+            HttpClient client = new HttpClient();
+            string result = client.GetAsync(link).Result.Content.ReadAsStringAsync().Result;
+            Models.Order[] orders = JsonSerializer.Deserialize<Models.Order[]>
+                (result, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
             dgvListOrder.DataSource = orders;
         }
 
@@ -83,15 +81,11 @@ namespace eStoreClient
         private void btnSearchClick_Click(object sender, EventArgs e)
         {
             string str = string.Format("?MemberId={0}", txtMemberId.Text);
-            string link = "http://localhost/sales/api/default/searchid" + str;
-            HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create(link);
-            WebResponse res = req.GetResponse();
-            DataContractJsonSerializer js = new DataContractJsonSerializer(typeof(Models.Member));
-            Stream responseStream = res.GetResponseStream();
-            object data = js.ReadObject(responseStream);
-            Models.Member member = (Models.Member)data;
-            responseStream.Close();
-            res.Close();
+            string link = "http://localhost:5241/api/default/searchid" + str;
+            HttpClient client = new HttpClient();
+            string result = client.GetAsync(link).Result.Content.ReadAsStringAsync().Result;
+            Models.Member member = JsonSerializer.Deserialize<Models.Member>
+                (result, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
 
             if (member != null)
             {
@@ -109,7 +103,7 @@ namespace eStoreClient
         }
         private void btnAddClick_Click(object sender, EventArgs e)
         {
-            string url = "http://localhost/sales/api/default/addmember";
+            string url = "http://localhost:5241/api/default/addmember";
             var client = new WebClient();
             var member = new NameValueCollection();
             member["Email"] = txtEmail.Text;
@@ -124,7 +118,7 @@ namespace eStoreClient
 
         private void btnUpdateClick_Click(object sender, EventArgs e)
         {
-            string url = "http://localhost/sales/api/default/editmember";
+            string url = "http://localhost:5241/api/default/editmember";
             var client = new WebClient();
             var member = new NameValueCollection();
             member["MemberId"] = txtMemberId.Text;
@@ -141,7 +135,7 @@ namespace eStoreClient
         private void btnDeleteClick_Click(object sender, EventArgs e)
         {
             string str = string.Format("?MemberId={0}", txtMemberId.Text);
-            string url = "http://localhost/sales/api/default/deletemember" + str;
+            string url = "http://localhost:5241/api/default/deletemember" + str;
             WebRequest req = WebRequest.CreateHttp(url);
             req.Method = "DELETE";
             HttpWebResponse res = (HttpWebResponse)req.GetResponse();
@@ -167,32 +161,29 @@ namespace eStoreClient
 
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
-            string url = "http://localhost/sales/api/default/addproduct";
-            var client = new WebClient();
-            var product = new NameValueCollection();
-            product["ProductId"] = txtProductId.Text;
-            product["CategoryId"] = txtCategoryId.Text;
-            product["ProductName"] = txtProductName.Text;
-            product["weight"] = txtWeight.Text;
-            product["UnitPrice"] = txtUnitPrice.Text;
-            product["UnitsInStock"] = txtUnitInStock.Text;
-            var respone = client.UploadValues(url, product);
-            string msg = Encoding.UTF8.GetString(respone);
+            string url = "http://localhost:5241/api/default/addproduct";
+            HttpClient httpClient = new HttpClient();
+            string content = JsonSerializer.Serialize(new
+            {
+                ProductId = txtProductId.Text,
+                CategoryId = txtCategoryId.Text,
+                ProductName = txtProductName.Text,
+                Weight = txtWeight.Text,
+                UnitPrice = txtUnitPrice.Text,
+                UnitsInStock = txtUnitInStock.Text
+            });
+            string msg = httpClient.PostAsync(url, new StringContent(content, Encoding.UTF8)).Result.Content.ReadAsStringAsync().Result;
             MessageBox.Show("Adding result " + msg);
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
             string str = string.Format("?ProductName={0}", txtProductName.Text);
-            string link = "http://localhost/sales/api/default/searchproductname" + str;
-            HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create(link);
-            WebResponse res = req.GetResponse();
-            DataContractJsonSerializer js = new DataContractJsonSerializer(typeof(Models.Product));
-            Stream responseStream = res.GetResponseStream();
-            object data = js.ReadObject(responseStream);
-            Models.Product product = (Models.Product)data;
-            responseStream.Close();
-            res.Close();
+            string link = "http://localhost:5241/api/default/searchproductname" + str;
+            HttpClient client = new HttpClient();
+            string result = client.GetAsync(link).Result.Content.ReadAsStringAsync().Result;
+            Models.Product product = JsonSerializer.Deserialize<Models.Product>
+                (result, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
 
             if (product != null)
             {
@@ -211,28 +202,28 @@ namespace eStoreClient
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            string url = "http://localhost/sales/api/default/editproduct";
-            var client = new WebClient();
-            var product = new NameValueCollection();
-            product["ProductId"] = txtProductId.Text;
-            product["CategoryId"] = txtCategoryId.Text;
-            product["ProductName"] = txtProductName.Text;
-            product["weight"] = txtWeight.Text;
-            product["UnitPrice"] = txtUnitPrice.Text;
-            product["UnitsInStock"] = txtUnitInStock.Text;
-            var respone = client.UploadValues(url, "PUT",product);
-            string msg = Encoding.UTF8.GetString(respone);
+            string url = "http://localhost:5241/api/default/editproduct";
+            HttpClient httpClient = new HttpClient();
+            string content = JsonSerializer.Serialize(new
+            {
+                ProductId = txtProductId.Text,
+                CategoryId = txtCategoryId.Text,
+                ProductName = txtProductName.Text,
+                Weight = txtWeight.Text,
+                UnitPrice = txtUnitPrice.Text,
+                UnitsInStock = txtUnitInStock.Text
+            });
+            string msg = httpClient.PutAsync(url, new StringContent(content, Encoding.UTF8)).Result.Content.ReadAsStringAsync().Result;
             MessageBox.Show("Update result " + msg);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
             string str = string.Format("?ProductId={0}", txtProductId.Text);
-            string url = "http://localhost/sales/api/default/deleteproduct" + str;
-            WebRequest req = WebRequest.CreateHttp(url);
-            req.Method = "DELETE";
-            HttpWebResponse res = (HttpWebResponse)req.GetResponse();
-            if (res.StatusCode == HttpStatusCode.OK)
+            string url = "http://localhost:5241/api/default/deleteproduct" + str;
+            HttpClient client = new HttpClient();
+            Task<HttpResponseMessage> resp = client.DeleteAsync(url);
+            if (resp.Result.IsSuccessStatusCode)
             {
                 MessageBox.Show("Delete Succesful Product: " + txtProductName.Text);
             }
@@ -254,32 +245,29 @@ namespace eStoreClient
 
         private void btnAddOrder_Click(object sender, EventArgs e)
         {
-            string url = "http://localhost/sales/api/default/addorder";
-            var client = new WebClient();
-            var order = new NameValueCollection();
-            order["OrderId"] = txtOrderId.Text;
-            order["MemberId"] = txtMemberId.Text;
-            order["OrderDate"] = txtOrderDate.Text;
-            order["Required"] = txtRequired.Text;
-            order["ShippedDate"] = txtShippedDate.Text;
-            order["Freight"] = txtFreight.Text;
-            var respone = client.UploadValues(url, order);
-            string msg = Encoding.UTF8.GetString(respone);
+            string url = "http://localhost:5241/api/default/addorder";
+            HttpClient httpClient = new HttpClient();
+            string content = JsonSerializer.Serialize(new
+            {
+                OrderId = txtOrderId.Text,
+                MemberId = txtMemberId.Text,
+                OrderDate = txtOrderDate.Text,
+                Required = txtRequired.Text,
+                ShippedDate = txtShippedDate.Text,
+                Freight = txtFreight.Text
+            });
+            string msg = httpClient.PostAsync(url, new StringContent(content, Encoding.UTF8)).Result.Content.ReadAsStringAsync().Result;
             MessageBox.Show("Adding result " + msg);
         }
 
         private void btnSearchOrder_Click(object sender, EventArgs e)
         {
             string str = string.Format("?OrderId={0}", txtOrderId.Text);
-            string link = "http://localhost/sales/api/default/searchorderid" + str;
-            HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create(link);
-            WebResponse res = req.GetResponse();
-            DataContractJsonSerializer js = new DataContractJsonSerializer(typeof(Models.Order));
-            Stream responseStream = res.GetResponseStream();
-            object data = js.ReadObject(responseStream);
-            Models.Order order = (Models.Order)data;
-            responseStream.Close();
-            res.Close();
+            string link = "http://localhost:5241/api/default/searchorderid" + str;
+            HttpClient client = new HttpClient();
+            string result = client.GetAsync(link).Result.Content.ReadAsStringAsync().Result;
+            Models.Order order = JsonSerializer.Deserialize<Models.Order>
+                (result, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
 
             if (order != null)
             {
@@ -298,28 +286,28 @@ namespace eStoreClient
 
         private void btnUpdateOrder_Click(object sender, EventArgs e)
         {
-            string url = "http://localhost/sales/api/default/editorder";
-            var client = new WebClient();
-            var order = new NameValueCollection();
-            order["OrderId"] = txtOrderId.Text;
-            order["MemberId"] = txtMemberId.Text;
-            order["OrderDate"] = txtOrderDate.Text;
-            order["Required"] = txtRequired.Text;
-            order["ShippedDate"] = txtShippedDate.Text;
-            order["Freight"] = txtFreight.Text;
-            var respone = client.UploadValues(url, "PUT",order);
-            string msg = Encoding.UTF8.GetString(respone);
+            string url = "http://localhost:5241/api/default/editorder";
+            HttpClient httpClient = new HttpClient();
+            string content = JsonSerializer.Serialize(new
+            {
+                OrderId = txtOrderId.Text,
+                MemberId = txtMemberId.Text,
+                OrderDate = txtOrderDate.Text,
+                Required = txtRequired.Text,
+                ShippedDate = txtShippedDate.Text,
+                Freight = txtFreight.Text
+            });
+            string msg = httpClient.PostAsync(url, new StringContent(content, Encoding.UTF8)).Result.Content.ReadAsStringAsync().Result;
             MessageBox.Show("Adding result " + msg);
         }
 
         private void btnDeleteOrder_Click(object sender, EventArgs e)
         {
             string str = string.Format("?OrderId={0}", txtOrderId.Text);
-            string link = "http://localhost/sales/api/default/deleteorder" + str;
-            WebRequest req = WebRequest.CreateHttp(link);
-            req.Method = "DELETE";
-            HttpWebResponse res = (HttpWebResponse)req.GetResponse();
-            if (res.StatusCode == HttpStatusCode.OK)
+            string link = "http://localhost:5241/api/default/deleteorder" + str;
+            HttpClient httpClient = new HttpClient();
+            HttpResponseMessage res = httpClient.DeleteAsync(link).Result;
+            if (res.IsSuccessStatusCode)
             {
                 MessageBox.Show("Delete Succesful Order: " + txtOrderId.Text);
             }

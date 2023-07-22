@@ -7,8 +7,10 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Runtime.Serialization.Json;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -26,22 +28,26 @@ namespace eStoreClient
 
         public void LoadMember()
         {
-            string link = "http://localhost/sales/api/default/listmember";
-            HttpWebRequest req = HttpWebRequest.CreateHttp(link);
-            WebResponse res = req.GetResponse();
-            DataContractJsonSerializer js = new DataContractJsonSerializer(typeof(Models.Member[]));
-            object data = js.ReadObject(res.GetResponseStream());
-            Models.Member[] members = data as Models.Member[];
+            string link = "http://localhost:5241/api/default/listmember";
+            HttpClient client = new HttpClient();
+            string result = client.GetAsync(link).Result.Content.ReadAsStringAsync().Result;
+            Models.Member[] members = JsonSerializer.Deserialize<Models.Member[]>
+                (result, new JsonSerializerOptions { PropertyNameCaseInsensitive = true});
+            StringBuilder sb = new StringBuilder();
+            foreach(var m in members)
+            {
+                sb.AppendLine($"{m.Email} - {m.Password} - {m.Country}");
+            }
+            MessageBox.Show( sb.ToString() );
             dgvMemberUser.DataSource = members;
         }
         public void LoadOrder()
         {
-            string link = "http://localhost/sales/api/default/listorder";
-            HttpWebRequest req = HttpWebRequest.CreateHttp(link);
-            WebResponse res = req.GetResponse();
-            DataContractJsonSerializer js = new DataContractJsonSerializer(typeof(Models.Order[]));
-            object data = js.ReadObject(res.GetResponseStream());
-            Models.Order[] orders = data as Models.Order[];
+            string link = "http://localhost:5241/api/default/listorder";
+            HttpClient client = new HttpClient();
+            string result = client.GetAsync(link).Result.Content.ReadAsStringAsync().Result;
+            Models.Order[] orders = JsonSerializer.Deserialize<Models.Order[]>
+                (result, new JsonSerializerOptions{ PropertyNameCaseInsensitive = true});
             dgvOrderMember.DataSource = orders;
         }
 
@@ -53,17 +59,18 @@ namespace eStoreClient
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            string url = "http://localhost/sales/api/default/editmember";
-            var client = new WebClient();
-            var member = new NameValueCollection();
-            member["MemberId"] = txtMemberId.Text;
-            member["Email"] = txtEmail.Text;
-            member["CompanyName"] = txtCompanyName.Text;
-            member["City"] = txtCity.Text;
-            member["Country"] = txtCountry.Text;
-            member["Password"] = txtPassword.Text;
-            var respone = client.UploadValues(url, "PUT", member);
-            string msg = Encoding.UTF8.GetString(respone);
+            string url = "http://localhost:5241/api/default/editmember";
+            string content = JsonSerializer.Serialize(new
+            {
+                MemberId = txtMemberId.Text,
+                Email = txtEmail.Text,
+                CompanyName = txtCompanyName.Text,
+                City = txtCity.Text,
+                Country = txtCountry.Text,
+                Password = txtPassword.Text
+            });
+            var httpClient = new HttpClient();
+            string msg = httpClient.PutAsync(url, new StringContent(content, Encoding.UTF8)).Result.Content.ReadAsStringAsync().Result;
             MessageBox.Show("Editing result " + msg);
         }
 

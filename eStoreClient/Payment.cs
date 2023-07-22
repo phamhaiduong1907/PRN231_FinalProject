@@ -24,5 +24,10 @@ namespace eStoreClient
             Invoice invoice = new Invoice();
             invoice.Show();
         }
+
+        private void btnAddItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
