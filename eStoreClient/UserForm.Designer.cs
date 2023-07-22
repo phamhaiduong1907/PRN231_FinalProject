@@ -30,6 +30,7 @@
         {
             this.tblUserInformation = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.dgvMemberUser = new System.Windows.Forms.DataGridView();
             this.label14 = new System.Windows.Forms.Label();
             this.txtCountry = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -46,13 +47,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label13 = new System.Windows.Forms.Label();
-            this.dgvMemberUser = new System.Windows.Forms.DataGridView();
             this.dgvOrderMember = new System.Windows.Forms.DataGridView();
+            this.label13 = new System.Windows.Forms.Label();
+            this.btnPaymentUser = new System.Windows.Forms.Button();
             this.tblUserInformation.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMemberUser)).BeginInit();
+            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderMember)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,6 +92,17 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "User Information";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // dgvMemberUser
+            // 
+            this.dgvMemberUser.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvMemberUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMemberUser.Location = new System.Drawing.Point(-4, 365);
+            this.dgvMemberUser.Name = "dgvMemberUser";
+            this.dgvMemberUser.RowHeadersWidth = 51;
+            this.dgvMemberUser.RowTemplate.Height = 24;
+            this.dgvMemberUser.Size = new System.Drawing.Size(785, 177);
+            this.dgvMemberUser.TabIndex = 15;
             // 
             // label14
             // 
@@ -234,6 +246,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.btnPaymentUser);
             this.tabPage2.Controls.Add(this.dgvOrderMember);
             this.tabPage2.Controls.Add(this.label13);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
@@ -243,27 +256,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Order User Information";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(707, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(77, 32);
-            this.label13.TabIndex = 18;
-            this.label13.Text = "User";
-            // 
-            // dgvMemberUser
-            // 
-            this.dgvMemberUser.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dgvMemberUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMemberUser.Location = new System.Drawing.Point(-4, 365);
-            this.dgvMemberUser.Name = "dgvMemberUser";
-            this.dgvMemberUser.RowHeadersWidth = 51;
-            this.dgvMemberUser.RowTemplate.Height = 24;
-            this.dgvMemberUser.Size = new System.Drawing.Size(785, 177);
-            this.dgvMemberUser.TabIndex = 15;
             // 
             // dgvOrderMember
             // 
@@ -277,6 +269,27 @@
             this.dgvOrderMember.Size = new System.Drawing.Size(792, 332);
             this.dgvOrderMember.TabIndex = 19;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(707, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(77, 32);
+            this.label13.TabIndex = 18;
+            this.label13.Text = "User";
+            // 
+            // btnPaymentUser
+            // 
+            this.btnPaymentUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPaymentUser.Location = new System.Drawing.Point(619, 147);
+            this.btnPaymentUser.Name = "btnPaymentUser";
+            this.btnPaymentUser.Size = new System.Drawing.Size(162, 53);
+            this.btnPaymentUser.TabIndex = 20;
+            this.btnPaymentUser.Text = "Payment";
+            this.btnPaymentUser.UseVisualStyleBackColor = true;
+            this.btnPaymentUser.Click += new System.EventHandler(this.btnPaymentOrderClick);
+            // 
             // UserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -288,9 +301,9 @@
             this.tblUserInformation.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMemberUser)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMemberUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderMember)).EndInit();
             this.ResumeLayout(false);
 
@@ -319,5 +332,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.DataGridView dgvMemberUser;
         private System.Windows.Forms.DataGridView dgvOrderMember;
+        private System.Windows.Forms.Button btnPaymentUser;
     }
 }

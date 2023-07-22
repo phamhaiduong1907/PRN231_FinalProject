@@ -64,3 +64,38 @@ D:\PRN231\Assignment01Solution_StudentCode\eStoreClient\obj\Debug\eStoreClient.c
 D:\PRN231\Assignment01Solution_StudentCode\eStoreClient\obj\Debug\eStoreClient.csproj.CopyComplete
 D:\PRN231\Assignment01Solution_StudentCode\eStoreClient\obj\Debug\eStoreClient.exe
 D:\PRN231\Assignment01Solution_StudentCode\eStoreClient\obj\Debug\eStoreClient.pdb
+D:\FPT University\Ki_8\PRN231\Project\PRN231_FinalProject\eStoreClient\bin\Debug\appsettings.json
+D:\FPT University\Ki_8\PRN231\Project\PRN231_FinalProject\eStoreClient\bin\Debug\eStoreClient.exe.config
+D:\FPT University\Ki_8\PRN231\Project\PRN231_FinalProject\eStoreClient\bin\Debug\eStoreClient.exe
+D:\FPT University\Ki_8\PRN231\Project\PRN231_FinalProject\eStoreClient\bin\Debug\eStoreClient.pdb
+D:\FPT University\Ki_8\PRN231\Project\PRN231_FinalProject\eStoreClient\bin\Debug\EntityFramework.dll
+D:\FPT University\Ki_8\PRN231\Project\PRN231_FinalProject\eStoreClient\bin\Debug\EntityFramework.SqlServer.dll
+D:\FPT University\Ki_8\PRN231\Project\PRN231_FinalProject\eStoreClient\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\FPT University\Ki_8\PRN231\Project\PRN231_FinalProject\eStoreClient\bin\Debug\Microsoft.Extensions.Primitives.dll
+D:\FPT University\Ki_8\PRN231\Project\PRN231_FinalProject\eStoreClient\bin\Debug\Newtonsoft.Json.dll
+D:\FPT University\Ki_8\PRN231\Project\PRN231_FinalProject\eStoreClient\bin\Debug\System.Buffers.dll
+D:\FPT University\Ki_8\PRN231\Project\PRN231_FinalProject\eStoreClient\bin\Debug\System.Memory.dll
+D:\FPT University\Ki_8\PRN231\Project\PRN231_FinalProject\eStoreClient\bin\Debug\System.Numerics.Vectors.dll
+D:\FPT University\Ki_8\PRN231\Project\PRN231_FinalProject\eStoreClient\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\FPT University\Ki_8\PRN231\Project\PRN231_FinalProject\eStoreClient\bin\Debug\EntityFramework.xml
+D:\FPT University\Ki_8\PRN231\Project\PRN231_FinalProject\eStoreClient\bin\Debug\EntityFramework.SqlServer.xml
+D:\FPT University\Ki_8\PRN231\Project\PRN231_FinalProject\eStoreClient\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.xml
+D:\FPT University\Ki_8\PRN231\Project\PRN231_FinalProject\eStoreClient\bin\Debug\Microsoft.Extensions.Primitives.xml
+D:\FPT University\Ki_8\PRN231\Project\PRN231_FinalProject\eStoreClient\bin\Debug\Newtonsoft.Json.xml
+D:\FPT University\Ki_8\PRN231\Project\PRN231_FinalProject\eStoreClient\bin\Debug\System.Buffers.xml
+D:\FPT University\Ki_8\PRN231\Project\PRN231_FinalProject\eStoreClient\bin\Debug\System.Memory.xml
+D:\FPT University\Ki_8\PRN231\Project\PRN231_FinalProject\eStoreClient\bin\Debug\System.Numerics.Vectors.xml
+D:\FPT University\Ki_8\PRN231\Project\PRN231_FinalProject\eStoreClient\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\FPT University\Ki_8\PRN231\Project\PRN231_FinalProject\eStoreClient\obj\Debug\eStoreClient.csproj.AssemblyReference.cache
+D:\FPT University\Ki_8\PRN231\Project\PRN231_FinalProject\eStoreClient\obj\Debug\eStoreClient.csproj.SuggestedBindingRedirects.cache
+D:\FPT University\Ki_8\PRN231\Project\PRN231_FinalProject\eStoreClient\obj\Debug\eStoreClient.eStoreClient.resources
+D:\FPT University\Ki_8\PRN231\Project\PRN231_FinalProject\eStoreClient\obj\Debug\eStoreClient.Invoice.resources
+D:\FPT University\Ki_8\PRN231\Project\PRN231_FinalProject\eStoreClient\obj\Debug\eStoreClient.LoginForm.resources
+D:\FPT University\Ki_8\PRN231\Project\PRN231_FinalProject\eStoreClient\obj\Debug\eStoreClient.Payment.resources
+D:\FPT University\Ki_8\PRN231\Project\PRN231_FinalProject\eStoreClient\obj\Debug\eStoreClient.Properties.Resources.resources
+D:\FPT University\Ki_8\PRN231\Project\PRN231_FinalProject\eStoreClient\obj\Debug\eStoreClient.UserForm.resources
+D:\FPT University\Ki_8\PRN231\Project\PRN231_FinalProject\eStoreClient\obj\Debug\eStoreClient.csproj.GenerateResource.cache
+D:\FPT University\Ki_8\PRN231\Project\PRN231_FinalProject\eStoreClient\obj\Debug\eStoreClient.csproj.CoreCompileInputs.cache
+D:\FPT University\Ki_8\PRN231\Project\PRN231_FinalProject\eStoreClient\obj\Debug\eStoreClient.csproj.CopyComplete
+D:\FPT University\Ki_8\PRN231\Project\PRN231_FinalProject\eStoreClient\obj\Debug\eStoreClient.exe
+D:\FPT University\Ki_8\PRN231\Project\PRN231_FinalProject\eStoreClient\obj\Debug\eStoreClient.pdb

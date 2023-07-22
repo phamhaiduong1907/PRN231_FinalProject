@@ -40,7 +40,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(215, 137);
+            this.label1.Location = new System.Drawing.Point(199, 136);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(108, 25);
             this.label1.TabIndex = 0;
@@ -50,7 +50,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(215, 204);
+            this.label2.Location = new System.Drawing.Point(199, 203);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(104, 25);
             this.label2.TabIndex = 1;
@@ -58,19 +58,21 @@
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(329, 126);
+            this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsername.Location = new System.Drawing.Point(313, 125);
             this.txtUsername.Multiline = true;
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(239, 46);
+            this.txtUsername.Size = new System.Drawing.Size(286, 46);
             this.txtUsername.TabIndex = 2;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(329, 193);
+            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Location = new System.Drawing.Point(313, 192);
             this.txtPassword.Multiline = true;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(239, 46);
+            this.txtPassword.Size = new System.Drawing.Size(286, 46);
             this.txtPassword.TabIndex = 3;
             // 
             // btnLoginClick
@@ -95,7 +97,7 @@
             this.btnCloseClick.UseVisualStyleBackColor = true;
             this.btnCloseClick.Click += new System.EventHandler(this.btnCloseClick_Click);
             // 
-            // Login
+            // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -106,7 +108,7 @@
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "Login";
+            this.Name = "LoginForm";
             this.Text = "Login";
             this.ResumeLayout(false);
             this.PerformLayout();

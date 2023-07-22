@@ -66,5 +66,12 @@ namespace eStoreClient
             string msg = Encoding.UTF8.GetString(respone);
             MessageBox.Show("Editing result " + msg);
         }
+
+        private void btnPaymentOrderClick(object sender, EventArgs e)
+        {
+            this.Hide();
+            Payment payment = new Payment();
+            payment.Show();
+        }
     }
 }

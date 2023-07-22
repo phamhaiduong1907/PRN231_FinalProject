@@ -52,7 +52,7 @@ namespace eStoreClient
         {
             eStoreClient eStoreClient = new eStoreClient();
             UserForm userForm = new UserForm(); 
-            string json = File.ReadAllText("D:\\FPT University\\Ki_8\\PRN231\\Asignment\\Assignment1\\Assignment01Solution_StudentCode\\eStoreClient\\appsettings.json");
+            string json = File.ReadAllText("D:\\FPT University\\Ki_8\\PRN231\\Project\\PRN231_FinalProject\\eStoreClient\\appsettings.json");
 
             DefaultAccount defaultAccount = JsonConvert.DeserializeObject<DefaultAccount>(json);
 
