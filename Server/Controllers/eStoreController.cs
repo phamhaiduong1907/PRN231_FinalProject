@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Server.Models;
+using Server.Models.DTO;
 
 namespace Server.Controllers
 {
@@ -148,6 +149,15 @@ namespace Server.Controllers
             }
             return false;
         }
+
+        [HttpDelete]
+        [Route("api/default/product/{productId}")]
+        public Models.Product GetProductById(int productId)
+        {
+            Models.Product pr = _context.Products.SingleOrDefault(d => d.ProductId == productId);
+            
+            return pr;
+        }
         //Order
         [HttpGet]
         [Route("api/default/listorder")]
@@ -223,19 +233,60 @@ namespace Server.Controllers
 
         [HttpPost]
         [Route("api/default/addtocart")]
-        public async Task<bool> AddToCart([FromBody] List<Cart> carts)
+        public bool AddToCart(List<CartDTO> carts)
         {
             if(!ModelState.IsValid) 
                 return false;
-            _context.Carts.AddRange(carts);
-            return await _context.SaveChangesAsync() > 0;
+            _context.Carts.AddRange(carts.Select(c => new Cart
+            {
+                MemberId = c.MemberId,
+                ProductId = c.ProductId,
+                Quantity = c.Quantity
+            }).ToList());
+            return _context.SaveChanges() > 0;
+        }
+
+        [HttpPut]
+        [Route("api/default/updatecart")]
+        public bool UpdateCart(List<CartDTO> carts)
+        {
+            if(!ModelState.IsValid)
+                return false;
+            //List<(int, int)> cartInfos = carts.Select(c => (c.MemberId, c.ProductId)).ToList();
+            //List<Cart> cartsToUpdate = _context.Carts.Where(c => cartInfos.Contains(new (c.MemberId, c.ProductId))).ToList();
+            try
+            {
+                List<Cart> cartsToUpdate = _context.Carts
+                .Where(c => carts.Select(ca => ca.MemberId).Contains(c.MemberId)
+                && carts.Select(ca => ca.ProductId).Contains(c.ProductId))
+                .ToList();
+                for (int i = 0; i < cartsToUpdate.Count; i++)
+                {
+                    cartsToUpdate[i].Quantity = carts[i].Quantity;
+                }
+                _context.Carts.UpdateRange(cartsToUpdate);
+                return _context.SaveChanges() > 0;
+            }
+            catch(Exception ex) 
+            {
+                return false;
+            }
         }
 
         [HttpGet]
         [Route("api/default/getcart/{memberid}")]
-        public async Task<IEnumerable<Cart>> GetMemberCart(int memberid)
+        public async Task<IEnumerable<object>> GetMemberCart(int memberid)
         {
-            List<Cart> carts = await _context.Carts.Include(c => c.Product).Where(c => c.MemberId == memberid).ToListAsync();
+            var carts = await _context.Carts
+                .Include(c => c.Product)
+                .Where(c => c.MemberId == memberid)
+                .Select(c => new 
+                {
+                    MemberId = c.MemberId,
+                    ProductId = c.ProductId,
+                    Quantity = c.Quantity,
+                    Product = new { ProductId = c.ProductId, ProductName = c.Product.ProductName }
+                }).ToListAsync();
             return carts;
         }
 

@@ -156,6 +156,7 @@
       <DependentUpon>Invoice.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Cart.cs" />
+    <Compile Include="Models\DTO\CartDTO.cs" />
     <Compile Include="Payment.cs">
       <SubType>Form</SubType>
     </Compile>

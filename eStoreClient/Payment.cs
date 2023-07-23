@@ -1,4 +1,5 @@
 ﻿using eStoreClient.Models;
+using eStoreClient.Models.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -57,21 +58,23 @@ namespace eStoreClient
                 UnitsInStock = p.UnitsInStock,
                 weight = p.weight
             }).ToList();
-            dgvPayment.Columns[0].Width = 0;
+            dgvPayment.Columns["ProductId"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            dgvPayment.Columns["ProductId"].Width = 0; 
         }
 
         private void LoadCarts(IEnumerable<Cart> carts)
         {
             List<Cart> cartItems = new List<Cart>();
             cartItems.AddRange(carts);
+            dgvCart.Columns.Clear();
             dgvCart.DataSource = cartItems.Select(c => new
             {
-                ProductName = c.Product.ProductName,
+                ProductName = c.ProductRef.ProductName,
                 Quantity = c.Quantity
             }).ToList();
         }
 
-        private async void btnAddItem_Click(object sender, EventArgs e)
+        private void btnAddItem_Click(object sender, EventArgs e)
         {
             if(dgvPayment.SelectedRows.Count == 0)
             {
@@ -79,20 +82,71 @@ namespace eStoreClient
             }
             else
             {
+
                 List<Cart> cartNewItems = new List<Cart>();
+                List<Cart> cartUpdateItems = new List<Cart>();
                 foreach(DataGridViewRow row in dgvPayment.SelectedRows)
                 {
-                   
+                    int productId = (int)row.Cells["ProductId"].Value;
+                    string productName = (string)row.Cells["ProductName"].Value;
+                    if(Carts.Select(c => c.ProductId).Contains(productId))
+                    {
+                        Cart cartFound = Carts.Find(c => c.ProductId == productId);
+                        int newQuantity = ++cartFound.Quantity;
+                        Cart cart = new Cart
+                        {
+                            MemberId = DefaultAccount.MemberId,
+                            ProductId = productId,
+                            Quantity = newQuantity
+                        };
+                        cartUpdateItems.Add(cart);
+                    }
+                    else
+                    {
+                        Models.Product product = new Models.Product
+                        {
+                            ProductId = productId,
+                            ProductName = productName
+                        };
+                        Cart cart = new Cart
+                        {
+                            MemberId = DefaultAccount.MemberId,
+                            ProductId = productId,
+                            ProductRef = product,
+                            Quantity = 1
+                        };
+                        cartNewItems.Add(cart);
+                        Carts.Add(cart);
+                    }
                 }
-                string url = "http://localhost:5241/api/default/addtocart";
-                HttpClient httpClient = new HttpClient();
-                var content = JsonSerializer.Serialize(cartNewItems.Select(c => new
+                LoadCarts(Carts);
+                string addUrl = "http://localhost:5241/api/default/addtocart";
+                string updateUrl = "http://localhost:5241/api/default/updatecart";
+                HttpClient client = new HttpClient();
+                if(cartUpdateItems.Count > 0)
                 {
-                    MemberId = DefaultAccount.MemberId,
-                    ProductId = c.ProductId,
-                    Quantity = c.Quantity
-                }).ToList());
-                await httpClient.PostAsync(url, new StringContent(content, Encoding.UTF8));
+                    var content = JsonSerializer.Serialize(cartUpdateItems.Select(c => new CartDTO
+                    {
+                        MemberId = c.MemberId,
+                        ProductId = c.ProductId,
+                        Quantity= c.Quantity
+                    }).ToList());
+                    HttpResponseMessage httpResponseMessage = client.PutAsync
+                        (updateUrl, new StringContent(content, Encoding.UTF8, "application/json")).Result;
+                    MessageBox.Show(httpResponseMessage.Content.ReadAsStringAsync().Result);
+                }
+                if (cartNewItems.Count > 0)
+                {
+                    var content = JsonSerializer.Serialize(cartNewItems.Select(c => new CartDTO
+                    {
+                        MemberId = c.MemberId,
+                        ProductId = c.ProductId,
+                        Quantity = c.Quantity
+                    }).ToList());
+                    HttpResponseMessage httpResponseMessage = client.PostAsync
+                        (updateUrl, new StringContent(content, Encoding.UTF8, "application/json")).Result;
+                    MessageBox.Show(httpResponseMessage.Content.ReadAsStringAsync().Result);
+                }
             }
         }
 
