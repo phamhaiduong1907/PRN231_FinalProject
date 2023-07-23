@@ -62,12 +62,17 @@ namespace eStoreClient
 
             string link = $"http://localhost:5241/api/default/searchmemberbyemail/{username}/{password}";
             HttpClient client = new HttpClient();
-            string result = client.GetAsync(link).Result.Content.ReadAsStringAsync().Result;
-            Models.Member memberAccount = JsonSerializer.Deserialize<Models.Member>
-                (result, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
-            MessageBox.Show(result);
+            string response = client.GetAsync(link).Result.Content.ReadAsStringAsync().Result;
+
+            Models.Member memberAccount = null;
+            if (!string.IsNullOrEmpty(response))
+            {
+                memberAccount = JsonSerializer.Deserialize<Models.Member>
+                (response, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+            }
 
             if (memberAccount != null) {
+                DefaultAccount.MemberId = memberAccount.MemberId;
                 this.Hide();
                 userForm.Show();
             }else if(username.Equals(emailA) && password.Equals(passwordA))

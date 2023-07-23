@@ -155,6 +155,7 @@
     <Compile Include="Invoice.Designer.cs">
       <DependentUpon>Invoice.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Cart.cs" />
     <Compile Include="Payment.cs">
       <SubType>Form</SubType>
     </Compile>

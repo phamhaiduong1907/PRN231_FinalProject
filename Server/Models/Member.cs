@@ -7,6 +7,7 @@ namespace Server.Models
     {
         public Member()
         {
+            Carts = new HashSet<Cart>();
             Orders = new HashSet<Order>();
         }
 
@@ -17,6 +18,7 @@ namespace Server.Models
         public string? Country { get; set; }
         public string? Password { get; set; }
 
+        public virtual ICollection<Cart> Carts { get; set; }
         public virtual ICollection<Order> Orders { get; set; }
     }
 }

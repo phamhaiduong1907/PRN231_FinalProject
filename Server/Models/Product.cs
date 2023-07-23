@@ -7,6 +7,7 @@ namespace Server.Models
     {
         public Product()
         {
+            Carts = new HashSet<Cart>();
             OrderDetails = new HashSet<OrderDetail>();
         }
 
@@ -18,6 +19,7 @@ namespace Server.Models
         public int? UnitsInStock { get; set; }
 
         public virtual Category? Category { get; set; }
+        public virtual ICollection<Cart> Carts { get; set; }
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
     }
 }

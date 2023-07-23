@@ -104,31 +104,33 @@ namespace eStoreClient
         private void btnAddClick_Click(object sender, EventArgs e)
         {
             string url = "http://localhost:5241/api/default/addmember";
-            var client = new WebClient();
-            var member = new NameValueCollection();
-            member["Email"] = txtEmail.Text;
-            member["CompanyName"] = txtCompanyName.Text;
-            member["City"] = txtCity.Text;
-            member["Country"] = txtCountry.Text;
-            member["Password"] = txtPassword.Text;
-            var respone = client.UploadValues(url, member);
-            string msg = Encoding.UTF8.GetString(respone);
+            HttpClient httpClient = new HttpClient();
+            var content = JsonSerializer.Serialize(new
+            {
+                Email = txtEmail.Text,
+                CompanyName = txtCompanyName.Text,
+                City = txtCity.Text,
+                Country = txtCountry.Text,
+                Password = txtPassword.Text
+            });
+            string msg = httpClient.PostAsync(url, new StringContent(content, Encoding.UTF8)).Result.Content.ReadAsStringAsync().Result;
             MessageBox.Show("Adding result " + msg);
         }
 
         private void btnUpdateClick_Click(object sender, EventArgs e)
         {
             string url = "http://localhost:5241/api/default/editmember";
-            var client = new WebClient();
-            var member = new NameValueCollection();
-            member["MemberId"] = txtMemberId.Text;
-            member["Email"] = txtEmail.Text;
-            member["CompanyName"] = txtCompanyName.Text;
-            member["City"] = txtCity.Text;
-            member["Country"] = txtCountry.Text;
-            member["Password"] = txtPassword.Text;
-            var respone = client.UploadValues(url, "PUT",member);
-            string msg = Encoding.UTF8.GetString(respone);
+            HttpClient httpClient = new HttpClient();
+            var content = JsonSerializer.Serialize(new
+            {
+                MemberId = txtMemberId.Text,
+                Email = txtEmail.Text,
+                CompanyName = txtCompanyName.Text,
+                City = txtCity.Text,
+                Country = txtCountry.Text,
+                Password = txtPassword.Text
+            });
+            string msg = httpClient.PutAsync(url, new StringContent(content, Encoding.UTF8)).Result.Content.ReadAsStringAsync().Result;
             MessageBox.Show("Editing result " + msg);
         }
 
@@ -136,10 +138,9 @@ namespace eStoreClient
         {
             string str = string.Format("?MemberId={0}", txtMemberId.Text);
             string url = "http://localhost:5241/api/default/deletemember" + str;
-            WebRequest req = WebRequest.CreateHttp(url);
-            req.Method = "DELETE";
-            HttpWebResponse res = (HttpWebResponse)req.GetResponse();
-            if (res.StatusCode == HttpStatusCode.OK)
+            HttpClient httpClient = new HttpClient();
+            HttpResponseMessage result = httpClient.DeleteAsync(url).Result;
+            if (result.IsSuccessStatusCode)
             {
                 MessageBox.Show("Delete Succesful MemberId: " + txtMemberId.Text);
             }

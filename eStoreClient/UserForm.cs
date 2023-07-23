@@ -33,12 +33,6 @@ namespace eStoreClient
             string result = client.GetAsync(link).Result.Content.ReadAsStringAsync().Result;
             Models.Member[] members = JsonSerializer.Deserialize<Models.Member[]>
                 (result, new JsonSerializerOptions { PropertyNameCaseInsensitive = true});
-            StringBuilder sb = new StringBuilder();
-            foreach(var m in members)
-            {
-                sb.AppendLine($"{m.Email} - {m.Password} - {m.Country}");
-            }
-            MessageBox.Show( sb.ToString() );
             dgvMemberUser.DataSource = members;
         }
         public void LoadOrder()

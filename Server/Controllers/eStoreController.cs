@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Server.Models;
 
 namespace Server.Controllers
@@ -219,5 +220,24 @@ namespace Server.Controllers
         {
             return _context.Members.SingleOrDefault(m => m.Email == email && m.Password == password);
         }
+
+        [HttpPost]
+        [Route("api/default/addtocart")]
+        public async Task<bool> AddToCart([FromBody] List<Cart> carts)
+        {
+            if(!ModelState.IsValid) 
+                return false;
+            _context.Carts.AddRange(carts);
+            return await _context.SaveChangesAsync() > 0;
+        }
+
+        [HttpGet]
+        [Route("api/default/getcart/{memberid}")]
+        public async Task<IEnumerable<Cart>> GetMemberCart(int memberid)
+        {
+            List<Cart> carts = await _context.Carts.Include(c => c.Product).Where(c => c.MemberId == memberid).ToListAsync();
+            return carts;
+        }
+
     }
 }
