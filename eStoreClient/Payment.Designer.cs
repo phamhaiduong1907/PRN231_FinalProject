@@ -34,20 +34,20 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-<<<<<<< HEAD
-=======
+//<<<<<<< HEAD
+//=======
             this.btnAddItem = new System.Windows.Forms.Button();
             this.btnRemoveItem = new System.Windows.Forms.Button();
             this.btnInvoice = new System.Windows.Forms.Button();
             this.btnPayment = new System.Windows.Forms.Button();
->>>>>>> d41c41faedc246ca3471cf207cb5c5a0e856d38f
+//>>>>>>> d41c41faedc246ca3471cf207cb5c5a0e856d38f
             this.dgvCart = new System.Windows.Forms.DataGridView();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnSubtractionItem = new System.Windows.Forms.Button();
+           // this.btnSubtractionItem = new System.Windows.Forms.Button();
             this.btnPayment = new System.Windows.Forms.Button();
             this.btnInvoice = new System.Windows.Forms.Button();
-            this.btnPlusItem = new System.Windows.Forms.Button();
+           // this.btnPlusItem = new System.Windows.Forms.Button();
             this.btnRemoveItem = new System.Windows.Forms.Button();
             this.btnAddItem = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPayment)).BeginInit();
@@ -104,8 +104,8 @@
             this.Column5.Name = "Column5";
             this.Column5.Width = 125;
             // 
-<<<<<<< HEAD
-=======
+//<<<<<<< HEAD
+//=======
             // btnAddItem
             // 
             this.btnAddItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -149,8 +149,8 @@
             this.btnPayment.Text = "Payment";
             this.btnPayment.UseVisualStyleBackColor = true;
             this.btnPayment.Click += new System.EventHandler(this.btnPayment_Click);
-            // 
->>>>>>> d41c41faedc246ca3471cf207cb5c5a0e856d38f
+//            // 
+//>>>>>>> d41c41faedc246ca3471cf207cb5c5a0e856d38f
             // dgvCart
             // 
             this.dgvCart.AllowUserToAddRows = false;
@@ -182,13 +182,13 @@
             // 
             // btnSubtractionItem
             // 
-            this.btnSubtractionItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubtractionItem.Image = global::eStoreClient.Properties.Resources.minus;
-            this.btnSubtractionItem.Location = new System.Drawing.Point(292, 633);
-            this.btnSubtractionItem.Name = "btnSubtractionItem";
-            this.btnSubtractionItem.Size = new System.Drawing.Size(65, 53);
-            this.btnSubtractionItem.TabIndex = 6;
-            this.btnSubtractionItem.UseVisualStyleBackColor = true;
+            //this.btnSubtractionItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //this.btnSubtractionItem.Image = global::eStoreClient.Properties.Resources.minus;
+            //this.btnSubtractionItem.Location = new System.Drawing.Point(292, 633);
+            //this.btnSubtractionItem.Name = "btnSubtractionItem";
+            //this.btnSubtractionItem.Size = new System.Drawing.Size(65, 53);
+            //this.btnSubtractionItem.TabIndex = 6;
+            //this.btnSubtractionItem.UseVisualStyleBackColor = true;
             // 
             // btnPayment
             // 
@@ -219,13 +219,13 @@
             // 
             // btnPlusItem
             // 
-            this.btnPlusItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPlusItem.Image = global::eStoreClient.Properties.Resources.plus2;
-            this.btnPlusItem.Location = new System.Drawing.Point(205, 633);
-            this.btnPlusItem.Name = "btnPlusItem";
-            this.btnPlusItem.Size = new System.Drawing.Size(65, 53);
-            this.btnPlusItem.TabIndex = 3;
-            this.btnPlusItem.UseVisualStyleBackColor = true;
+            //this.btnPlusItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //this.btnPlusItem.Image = global::eStoreClient.Properties.Resources.plus2;
+            //this.btnPlusItem.Location = new System.Drawing.Point(205, 633);
+            //this.btnPlusItem.Name = "btnPlusItem";
+            //this.btnPlusItem.Size = new System.Drawing.Size(65, 53);
+            //this.btnPlusItem.TabIndex = 3;
+            //this.btnPlusItem.UseVisualStyleBackColor = true;
             // 
             // btnRemoveItem
             // 

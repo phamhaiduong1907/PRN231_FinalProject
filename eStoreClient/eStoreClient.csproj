@@ -211,9 +211,6 @@
     <EmbeddedResource Include="UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="appsettings.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="eStore.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>eStore.designer.cs</LastGenOutput>
@@ -221,6 +218,9 @@
     </None>
     <None Include="eStore.dbml.layout">
       <DependentUpon>eStore.dbml</DependentUpon>
+    </None>
+    <None Include="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -284,6 +284,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Images\website.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\export.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\file.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
