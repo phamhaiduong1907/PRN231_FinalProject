@@ -30,6 +30,7 @@
         {
             this.tblUserInformation = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dgvMemberUser = new System.Windows.Forms.DataGridView();
             this.label14 = new System.Windows.Forms.Label();
             this.txtCountry = new System.Windows.Forms.TextBox();
@@ -47,14 +48,17 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnView = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnPaymentUser = new System.Windows.Forms.Button();
             this.dgvOrderMember = new System.Windows.Forms.DataGridView();
             this.label13 = new System.Windows.Forms.Label();
-            this.btnView = new System.Windows.Forms.Button();
             this.tblUserInformation.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMemberUser)).BeginInit();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderMember)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,6 +74,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.pictureBox1);
             this.tabPage1.Controls.Add(this.dgvMemberUser);
             this.tabPage1.Controls.Add(this.label14);
             this.tabPage1.Controls.Add(this.txtCountry);
@@ -94,6 +99,15 @@
             this.tabPage1.Text = "User Information";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::eStoreClient.Properties.Resources.user1;
+            this.pictureBox1.Location = new System.Drawing.Point(750, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(34, 32);
+            this.pictureBox1.TabIndex = 17;
+            this.pictureBox1.TabStop = false;
+            // 
             // dgvMemberUser
             // 
             this.dgvMemberUser.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -109,7 +123,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(707, 0);
+            this.label14.Location = new System.Drawing.Point(667, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(77, 32);
             this.label14.TabIndex = 14;
@@ -136,6 +150,8 @@
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Image = global::eStoreClient.Properties.Resources.delete_button1;
+            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClose.Location = new System.Drawing.Point(490, 155);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(147, 56);
@@ -147,11 +163,13 @@
             // btnEdit
             // 
             this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.Image = global::eStoreClient.Properties.Resources.refresh_button1;
+            this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEdit.Location = new System.Drawing.Point(490, 55);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(147, 57);
             this.btnEdit.TabIndex = 10;
-            this.btnEdit.Text = "Edit";
+            this.btnEdit.Text = "Update";
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
@@ -248,6 +266,7 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.btnView);
+            this.tabPage2.Controls.Add(this.pictureBox2);
             this.tabPage2.Controls.Add(this.btnPaymentUser);
             this.tabPage2.Controls.Add(this.dgvOrderMember);
             this.tabPage2.Controls.Add(this.label13);
@@ -259,14 +278,37 @@
             this.tabPage2.Text = "Order User Information";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // btnView
+            // 
+            this.btnView.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnView.Location = new System.Drawing.Point(434, 147);
+            this.btnView.Name = "btnView";
+            this.btnView.Size = new System.Drawing.Size(162, 53);
+            this.btnView.TabIndex = 21;
+            this.btnView.Text = "Detail";
+            this.btnView.UseVisualStyleBackColor = true;
+            this.btnView.Click += new System.EventHandler(this.btnView_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::eStoreClient.Properties.Resources.user1;
+            this.pictureBox2.Location = new System.Drawing.Point(750, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(34, 32);
+            this.pictureBox2.TabIndex = 21;
+            this.pictureBox2.TabStop = false;
+            // 
             // btnPaymentUser
             // 
             this.btnPaymentUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPaymentUser.Location = new System.Drawing.Point(626, 147);
+            this.btnPaymentUser.Image = global::eStoreClient.Properties.Resources.cashless_payment1;
+            this.btnPaymentUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPaymentUser.Location = new System.Drawing.Point(613, 147);
             this.btnPaymentUser.Name = "btnPaymentUser";
-            this.btnPaymentUser.Size = new System.Drawing.Size(162, 53);
+            this.btnPaymentUser.Size = new System.Drawing.Size(168, 53);
             this.btnPaymentUser.TabIndex = 20;
             this.btnPaymentUser.Text = "Payment";
+            this.btnPaymentUser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPaymentUser.UseVisualStyleBackColor = true;
             this.btnPaymentUser.Click += new System.EventHandler(this.btnPaymentOrderClick);
             // 
@@ -286,22 +328,11 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(707, 0);
+            this.label13.Location = new System.Drawing.Point(667, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(77, 32);
             this.label13.TabIndex = 18;
             this.label13.Text = "User";
-            // 
-            // btnView
-            // 
-            this.btnView.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnView.Location = new System.Drawing.Point(458, 147);
-            this.btnView.Name = "btnView";
-            this.btnView.Size = new System.Drawing.Size(162, 53);
-            this.btnView.TabIndex = 21;
-            this.btnView.Text = "Detail";
-            this.btnView.UseVisualStyleBackColor = true;
-            this.btnView.Click += new System.EventHandler(this.btnView_Click);
             // 
             // UserForm
             // 
@@ -314,9 +345,11 @@
             this.tblUserInformation.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMemberUser)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderMember)).EndInit();
             this.ResumeLayout(false);
 
@@ -347,5 +380,7 @@
         private System.Windows.Forms.DataGridView dgvOrderMember;
         private System.Windows.Forms.Button btnPaymentUser;
         private System.Windows.Forms.Button btnView;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

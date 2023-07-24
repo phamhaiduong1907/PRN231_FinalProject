@@ -215,13 +215,11 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="appsettings.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="eStore.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>eStore.designer.cs</LastGenOutput>
@@ -229,6 +227,9 @@
     </None>
     <None Include="eStore.dbml.layout">
       <DependentUpon>eStore.dbml</DependentUpon>
+    </None>
+    <None Include="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -247,6 +248,60 @@
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\loading %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\shutdown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\refresh-button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\delete-button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\sync.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\software-engineer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\cashless-payment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\bill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\plus2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\website.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\export.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\file.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
