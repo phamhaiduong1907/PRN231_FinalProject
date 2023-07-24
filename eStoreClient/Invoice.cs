@@ -15,6 +15,11 @@ namespace eStoreClient
     {
         private Order order; // Tạo một đối tượng Order để sử dụng
 
+        public Invoice()
+        {
+            InitializeComponent();
+            CenterToParent();
+        }
         public Invoice(Order order)
         {
             InitializeComponent();
