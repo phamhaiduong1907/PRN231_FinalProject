@@ -273,6 +273,31 @@ namespace Server.Controllers
             }
         }
 
+        [HttpDelete]
+        [Route("api/default/removefromcart")]
+        public bool RemoveFromCart([FromBody]List<CartDTO> carts)
+        {
+            if (!ModelState.IsValid)
+                return false;
+            try
+            {
+                List<Cart> cartsToDelete = _context.Carts
+                .Where(c => carts.Select(ca => ca.MemberId).Contains(c.MemberId)
+                && carts.Select(ca => ca.ProductId).Contains(c.ProductId))
+                .ToList();
+                for (int i = 0; i < cartsToDelete.Count; i++)
+                {
+                    cartsToDelete[i].Quantity = carts[i].Quantity;
+                }
+                _context.Carts.RemoveRange(cartsToDelete);
+                return _context.SaveChanges() > 0;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
         [HttpGet]
         [Route("api/default/getcart/{memberid}")]
         public async Task<IEnumerable<object>> GetMemberCart(int memberid)
@@ -287,6 +312,7 @@ namespace Server.Controllers
                     Quantity = c.Quantity,
                     Product = new { ProductId = c.ProductId, ProductName = c.Product.ProductName }
                 }).ToListAsync();
+            
             return carts;
         }
 

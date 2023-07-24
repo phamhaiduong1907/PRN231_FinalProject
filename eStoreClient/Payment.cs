@@ -59,7 +59,7 @@ namespace eStoreClient
                 weight = p.weight
             }).ToList();
             dgvPayment.Columns["ProductId"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            dgvPayment.Columns["ProductId"].Width = 0; 
+            dgvPayment.Columns["ProductId"].Width = 0;
         }
 
         private void LoadCarts(IEnumerable<Cart> carts)
@@ -69,12 +69,14 @@ namespace eStoreClient
             dgvCart.Columns.Clear();
             dgvCart.DataSource = cartItems.Select(c => new
             {
+                ProductId = c.ProductId,
                 ProductName = c.ProductRef.ProductName,
                 Quantity = c.Quantity
             }).ToList();
+            dgvCart.Columns[0].Visible = false;
         }
 
-        private void btnAddItem_Click(object sender, EventArgs e)
+        private async void btnAddItem_Click(object sender, EventArgs e)
         {
             if(dgvPayment.SelectedRows.Count == 0)
             {
@@ -131,9 +133,8 @@ namespace eStoreClient
                         ProductId = c.ProductId,
                         Quantity= c.Quantity
                     }).ToList());
-                    HttpResponseMessage httpResponseMessage = client.PutAsync
-                        (updateUrl, new StringContent(content, Encoding.UTF8, "application/json")).Result;
-                    MessageBox.Show(httpResponseMessage.Content.ReadAsStringAsync().Result);
+                    HttpResponseMessage httpResponseMessage = await client.PutAsync
+                        (updateUrl, new StringContent(content, Encoding.UTF8, "application/json"));
                 }
                 if (cartNewItems.Count > 0)
                 {
@@ -143,9 +144,8 @@ namespace eStoreClient
                         ProductId = c.ProductId,
                         Quantity = c.Quantity
                     }).ToList());
-                    HttpResponseMessage httpResponseMessage = client.PostAsync
-                        (updateUrl, new StringContent(content, Encoding.UTF8, "application/json")).Result;
-                    MessageBox.Show(httpResponseMessage.Content.ReadAsStringAsync().Result);
+                    HttpResponseMessage httpResponseMessage = await client.PostAsync
+                        (addUrl, new StringContent(content, Encoding.UTF8, "application/json"));
                 }
             }
         }
@@ -153,6 +153,41 @@ namespace eStoreClient
         private void btnPayment_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private async void btnRemoveItem_Click(object sender, EventArgs e)
+        {
+            if (dgvCart.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Select a product first!");
+            }
+            else
+            {
+                List<CartDTO> cartDeleteItems = new List<CartDTO>();
+                foreach(DataGridViewRow cart in dgvCart.SelectedRows)
+                {
+                    int productId = (int)cart.Cells["ProductId"].Value;
+                    int quantity = (int)cart.Cells["Quantity"].Value;
+                    cartDeleteItems.Add(new CartDTO
+                    {
+                        MemberId = DefaultAccount.MemberId,
+                        ProductId = productId,
+                        Quantity = quantity
+                    });
+                    Carts.RemoveAll(c => c.ProductId == productId);
+                }
+                LoadCarts(Carts);
+                string removeUrl = "http://localhost:5241/api/default/removefromcart";
+                HttpClient client = new HttpClient();
+                var content = JsonSerializer.Serialize(cartDeleteItems);
+                var request = new HttpRequestMessage
+                {
+                    Content = new StringContent(content, Encoding.UTF8, "application/json"),
+                    Method = HttpMethod.Delete,
+                    RequestUri = new Uri(removeUrl)
+                };
+                HttpResponseMessage httpResponseMessage = await client.SendAsync(request);
+            }
         }
     }
 }
