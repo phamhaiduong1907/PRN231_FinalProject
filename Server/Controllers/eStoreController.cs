@@ -187,6 +187,36 @@ namespace Server.Controllers
                 return false;
             }
         }
+
+        [HttpPost]
+        [Route("api/default/createorder")]
+        public bool CreateOrder([FromBody] AddOrderDTO order)
+        {
+            try
+            {
+                Order orderToAdd = new Order
+                {
+                    MemberId = order.MemberId,
+                    OrderDate = order.OrderDate,
+                    Required = order.Required,
+                    OrderDetails = order.OrderDetails.Select(o => new OrderDetail
+                    {
+                        ProductId = o.ProductId,
+                        Quantity = o.Quantity,
+                    }).ToList()
+                };
+                List<Cart> carts = _context.Carts.Where(c => c.MemberId == order.MemberId).ToList();
+                _context.Orders.Add(orderToAdd);
+                _context.Carts.RemoveRange(carts);
+                return _context.SaveChanges() > 0;
+            }
+            catch(Exception ex)
+            {
+                return false;
+            }
+        }
+
+
         [HttpPut]
         [Route("api/default/editorder")]
         public bool EditOrder([FromBody] Models.Order order)

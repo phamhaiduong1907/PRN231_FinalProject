@@ -177,6 +177,12 @@
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\sysdiagram.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Promt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Promt.Designer.cs">
+      <DependentUpon>Promt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\AuthRepository.cs" />
     <Compile Include="Repository\IAuthRepository.cs" />
@@ -197,6 +203,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Payment.resx">
       <DependentUpon>Payment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Promt.resx">
+      <DependentUpon>Promt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

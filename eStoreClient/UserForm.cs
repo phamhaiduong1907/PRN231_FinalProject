@@ -74,5 +74,19 @@ namespace eStoreClient
             Payment payment = new Payment();
             payment.Show();
         }
+
+        private void btnView_Click(object sender, EventArgs e)
+        {
+            if(dgvOrderMember.SelectedRows.Count == 1)
+            {
+                this.Hide();
+                Invoice invoice = new Invoice();
+                invoice.Show();
+            }
+            else
+            {
+                MessageBox.Show("Please choose 1 order to view detail");
+            }
+        }
     }
 }

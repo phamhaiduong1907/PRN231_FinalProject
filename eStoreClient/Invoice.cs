@@ -25,6 +25,10 @@ namespace eStoreClient
             InitializeComponent();
             CenterToParent();
             this.order = order;
+            if(order.ShippedDate == null)
+            {
+                btnExport.Enabled = false;
+            }
         }
 
         private void btnExport_Click(object sender, EventArgs e)

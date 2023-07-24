@@ -149,9 +149,35 @@ namespace eStoreClient
             }
         }
 
-        private void btnPayment_Click(object sender, EventArgs e)
+        private async void btnPayment_Click(object sender, EventArgs e)
         {
-
+            Promt promt = new Promt();
+            if(promt.ShowDialog() == DialogResult.OK)
+            {
+                string url = "http://localhost:5241/api/default/createorder";
+                HttpClient client = new HttpClient();
+                var content = JsonSerializer.Serialize(new
+                {
+                    MemberId = DefaultAccount.MemberId,
+                    OrderDate = DateTime.Now,
+                    Required = promt.RequiredDate,
+                    OrderDetails = Carts.Select(c => new OrderDetail
+                    {
+                        ProductId = c.ProductId,
+                        Quantity = c.Quantity,
+                    }).ToList()
+                });
+                HttpResponseMessage httpResponseMessage = await client.PostAsync(url, new StringContent(content, Encoding.UTF8, "application.json"));
+                if(await httpResponseMessage.Content.ReadAsStringAsync() == "true")
+                {
+                    Carts.Clear();
+                    MessageBox.Show("Order successfully!");
+                }
+                else
+                {
+                    MessageBox.Show("Errors happen when processing order!");
+                }
+            }
         }
 
         private async void btnRemoveItem_Click(object sender, EventArgs e)

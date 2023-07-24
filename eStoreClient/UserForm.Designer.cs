@@ -50,6 +50,7 @@
             this.btnPaymentUser = new System.Windows.Forms.Button();
             this.dgvOrderMember = new System.Windows.Forms.DataGridView();
             this.label13 = new System.Windows.Forms.Label();
+            this.btnView = new System.Windows.Forms.Button();
             this.tblUserInformation.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMemberUser)).BeginInit();
@@ -246,6 +247,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.btnView);
             this.tabPage2.Controls.Add(this.btnPaymentUser);
             this.tabPage2.Controls.Add(this.dgvOrderMember);
             this.tabPage2.Controls.Add(this.label13);
@@ -260,7 +262,7 @@
             // btnPaymentUser
             // 
             this.btnPaymentUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPaymentUser.Location = new System.Drawing.Point(619, 147);
+            this.btnPaymentUser.Location = new System.Drawing.Point(626, 147);
             this.btnPaymentUser.Name = "btnPaymentUser";
             this.btnPaymentUser.Size = new System.Drawing.Size(162, 53);
             this.btnPaymentUser.TabIndex = 20;
@@ -289,6 +291,17 @@
             this.label13.Size = new System.Drawing.Size(77, 32);
             this.label13.TabIndex = 18;
             this.label13.Text = "User";
+            // 
+            // btnView
+            // 
+            this.btnView.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnView.Location = new System.Drawing.Point(458, 147);
+            this.btnView.Name = "btnView";
+            this.btnView.Size = new System.Drawing.Size(162, 53);
+            this.btnView.TabIndex = 21;
+            this.btnView.Text = "Detail";
+            this.btnView.UseVisualStyleBackColor = true;
+            this.btnView.Click += new System.EventHandler(this.btnView_Click);
             // 
             // UserForm
             // 
@@ -333,5 +346,6 @@
         private System.Windows.Forms.DataGridView dgvMemberUser;
         private System.Windows.Forms.DataGridView dgvOrderMember;
         private System.Windows.Forms.Button btnPaymentUser;
+        private System.Windows.Forms.Button btnView;
     }
 }
