@@ -15,6 +15,12 @@ namespace eStoreClient
     {
         private Order order; // Tạo một đối tượng Order để sử dụng
 
+        public Invoice()
+        {
+            InitializeComponent();
+            CenterToParent();
+        }
+
         public Invoice(Order order)
         {
             InitializeComponent();
@@ -25,7 +31,8 @@ namespace eStoreClient
         private void btnExport_Click(object sender, EventArgs e)
         {
             // Tạo nội dung Invoice trước khi in
-            string invoiceContent = $"Invoice-{order.OrderId}-{order.OrderDate}";
+            string invoiceContent = "Hello Viet Nam";
+            //$"Invoice-{order.OrderId}-{order.OrderDate}";
 
             // Tạo một đối tượng PrintDocument để in nội dung
             System.Drawing.Printing.PrintDocument doc = new System.Drawing.Printing.PrintDocument();

@@ -32,8 +32,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
-            this.btnLoginClick = new System.Windows.Forms.Button();
             this.btnCloseClick = new System.Windows.Forms.Button();
+            this.btnLoginClick = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -75,20 +75,11 @@
             this.txtPassword.Size = new System.Drawing.Size(286, 46);
             this.txtPassword.TabIndex = 3;
             // 
-            // btnLoginClick
-            // 
-            this.btnLoginClick.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLoginClick.Location = new System.Drawing.Point(201, 325);
-            this.btnLoginClick.Name = "btnLoginClick";
-            this.btnLoginClick.Size = new System.Drawing.Size(173, 57);
-            this.btnLoginClick.TabIndex = 4;
-            this.btnLoginClick.Text = "Login";
-            this.btnLoginClick.UseVisualStyleBackColor = true;
-            this.btnLoginClick.Click += new System.EventHandler(this.btnLoginClick_Click);
-            // 
             // btnCloseClick
             // 
             this.btnCloseClick.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCloseClick.Image = global::eStoreClient.Properties.Resources.delete_button1;
+            this.btnCloseClick.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCloseClick.Location = new System.Drawing.Point(417, 325);
             this.btnCloseClick.Name = "btnCloseClick";
             this.btnCloseClick.Size = new System.Drawing.Size(173, 57);
@@ -96,6 +87,19 @@
             this.btnCloseClick.Text = "Close";
             this.btnCloseClick.UseVisualStyleBackColor = true;
             this.btnCloseClick.Click += new System.EventHandler(this.btnCloseClick_Click);
+            // 
+            // btnLoginClick
+            // 
+            this.btnLoginClick.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLoginClick.Image = global::eStoreClient.Properties.Resources.website;
+            this.btnLoginClick.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLoginClick.Location = new System.Drawing.Point(201, 325);
+            this.btnLoginClick.Name = "btnLoginClick";
+            this.btnLoginClick.Size = new System.Drawing.Size(173, 57);
+            this.btnLoginClick.TabIndex = 4;
+            this.btnLoginClick.Text = "Login";
+            this.btnLoginClick.UseVisualStyleBackColor = true;
+            this.btnLoginClick.Click += new System.EventHandler(this.btnLoginClick_Click);
             // 
             // LoginForm
             // 

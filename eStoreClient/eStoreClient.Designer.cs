@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(eStoreClient));
             this.ProductManagement = new System.Windows.Forms.TabPage();
             this.label20 = new System.Windows.Forms.Label();
             this.txtCategoryId = new System.Windows.Forms.TextBox();
@@ -37,18 +38,18 @@
             this.txtProductName = new System.Windows.Forms.TextBox();
             this.txtProductId = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.btnEnd = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.btnAddProduct = new System.Windows.Forms.Button();
-            this.btnLoadListProduct = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.dgvListProduct = new System.Windows.Forms.DataGridView();
+            this.btnLoadListProduct = new System.Windows.Forms.Button();
+            this.btnEnd = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.btnAddProduct = new System.Windows.Forms.Button();
             this.MemberManagement = new System.Windows.Forms.TabPage();
             this.label19 = new System.Windows.Forms.Label();
             this.btnEndClick = new System.Windows.Forms.Button();
@@ -78,12 +79,6 @@
             this.txtOrderDate = new System.Windows.Forms.TextBox();
             this.txtMemberIdOrder = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.btnCloseOrder = new System.Windows.Forms.Button();
-            this.btnDeleteOrder = new System.Windows.Forms.Button();
-            this.btnUpdateOrder = new System.Windows.Forms.Button();
-            this.btnSearchOrder = new System.Windows.Forms.Button();
-            this.btnAddOrder = new System.Windows.Forms.Button();
-            this.btnLoadOrder = new System.Windows.Forms.Button();
             this.txtFreight = new System.Windows.Forms.TextBox();
             this.txtOrderId = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -92,6 +87,12 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.dgvListOrder = new System.Windows.Forms.DataGridView();
+            this.btnCloseOrder = new System.Windows.Forms.Button();
+            this.btnDeleteOrder = new System.Windows.Forms.Button();
+            this.btnUpdateOrder = new System.Windows.Forms.Button();
+            this.btnSearchOrder = new System.Windows.Forms.Button();
+            this.btnAddOrder = new System.Windows.Forms.Button();
+            this.btnLoadOrder = new System.Windows.Forms.Button();
             this.ProductManagement.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListProduct)).BeginInit();
             this.MemberManagement.SuspendLayout();
@@ -111,18 +112,18 @@
             this.ProductManagement.Controls.Add(this.txtProductName);
             this.ProductManagement.Controls.Add(this.txtProductId);
             this.ProductManagement.Controls.Add(this.label7);
-            this.ProductManagement.Controls.Add(this.btnEnd);
-            this.ProductManagement.Controls.Add(this.btnDelete);
-            this.ProductManagement.Controls.Add(this.btnUpdate);
-            this.ProductManagement.Controls.Add(this.btnSearch);
-            this.ProductManagement.Controls.Add(this.btnAddProduct);
-            this.ProductManagement.Controls.Add(this.btnLoadListProduct);
             this.ProductManagement.Controls.Add(this.label8);
             this.ProductManagement.Controls.Add(this.label9);
             this.ProductManagement.Controls.Add(this.label10);
             this.ProductManagement.Controls.Add(this.label11);
             this.ProductManagement.Controls.Add(this.label12);
             this.ProductManagement.Controls.Add(this.dgvListProduct);
+            this.ProductManagement.Controls.Add(this.btnLoadListProduct);
+            this.ProductManagement.Controls.Add(this.btnEnd);
+            this.ProductManagement.Controls.Add(this.btnDelete);
+            this.ProductManagement.Controls.Add(this.btnUpdate);
+            this.ProductManagement.Controls.Add(this.btnSearch);
+            this.ProductManagement.Controls.Add(this.btnAddProduct);
             this.ProductManagement.Location = new System.Drawing.Point(4, 25);
             this.ProductManagement.Name = "ProductManagement";
             this.ProductManagement.Padding = new System.Windows.Forms.Padding(3);
@@ -198,66 +199,6 @@
             this.label7.TabIndex = 27;
             this.label7.Text = "CategoryId: ";
             // 
-            // btnEnd
-            // 
-            this.btnEnd.Location = new System.Drawing.Point(987, 255);
-            this.btnEnd.Name = "btnEnd";
-            this.btnEnd.Size = new System.Drawing.Size(98, 33);
-            this.btnEnd.TabIndex = 26;
-            this.btnEnd.Text = "END";
-            this.btnEnd.UseVisualStyleBackColor = true;
-            this.btnEnd.Click += new System.EventHandler(this.btnEnd_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(538, 204);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(98, 33);
-            this.btnDelete.TabIndex = 25;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Location = new System.Drawing.Point(538, 161);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(98, 33);
-            this.btnUpdate.TabIndex = 24;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(538, 118);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(98, 33);
-            this.btnSearch.TabIndex = 23;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // btnAddProduct
-            // 
-            this.btnAddProduct.Location = new System.Drawing.Point(538, 75);
-            this.btnAddProduct.Name = "btnAddProduct";
-            this.btnAddProduct.Size = new System.Drawing.Size(98, 33);
-            this.btnAddProduct.TabIndex = 22;
-            this.btnAddProduct.Text = "Add";
-            this.btnAddProduct.UseVisualStyleBackColor = true;
-            this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
-            // 
-            // btnLoadListProduct
-            // 
-            this.btnLoadListProduct.Location = new System.Drawing.Point(538, 28);
-            this.btnLoadListProduct.Name = "btnLoadListProduct";
-            this.btnLoadListProduct.Size = new System.Drawing.Size(98, 33);
-            this.btnLoadListProduct.TabIndex = 21;
-            this.btnLoadListProduct.Text = "Load List";
-            this.btnLoadListProduct.UseVisualStyleBackColor = true;
-            this.btnLoadListProduct.Click += new System.EventHandler(this.btnLoadListProduct_Click);
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -315,6 +256,79 @@
             this.dgvListProduct.Size = new System.Drawing.Size(1221, 419);
             this.dgvListProduct.TabIndex = 0;
             // 
+            // btnLoadListProduct
+            // 
+            this.btnLoadListProduct.Image = global::eStoreClient.Properties.Resources.sync;
+            this.btnLoadListProduct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLoadListProduct.Location = new System.Drawing.Point(538, 28);
+            this.btnLoadListProduct.Name = "btnLoadListProduct";
+            this.btnLoadListProduct.Size = new System.Drawing.Size(98, 33);
+            this.btnLoadListProduct.TabIndex = 21;
+            this.btnLoadListProduct.Text = "Load List";
+            this.btnLoadListProduct.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLoadListProduct.UseVisualStyleBackColor = true;
+            this.btnLoadListProduct.Click += new System.EventHandler(this.btnLoadListProduct_Click);
+            // 
+            // btnEnd
+            // 
+            this.btnEnd.Image = global::eStoreClient.Properties.Resources.shutdown;
+            this.btnEnd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEnd.Location = new System.Drawing.Point(987, 255);
+            this.btnEnd.Name = "btnEnd";
+            this.btnEnd.Size = new System.Drawing.Size(98, 33);
+            this.btnEnd.TabIndex = 26;
+            this.btnEnd.Text = "END";
+            this.btnEnd.UseVisualStyleBackColor = true;
+            this.btnEnd.Click += new System.EventHandler(this.btnEnd_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Image = global::eStoreClient.Properties.Resources.delete_button;
+            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDelete.Location = new System.Drawing.Point(538, 204);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(98, 33);
+            this.btnDelete.TabIndex = 25;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Image = global::eStoreClient.Properties.Resources.refresh_button;
+            this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUpdate.Location = new System.Drawing.Point(538, 161);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(98, 33);
+            this.btnUpdate.TabIndex = 24;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Image = global::eStoreClient.Properties.Resources.search;
+            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSearch.Location = new System.Drawing.Point(538, 118);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(98, 33);
+            this.btnSearch.TabIndex = 23;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // btnAddProduct
+            // 
+            this.btnAddProduct.Image = global::eStoreClient.Properties.Resources.plus;
+            this.btnAddProduct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddProduct.Location = new System.Drawing.Point(538, 75);
+            this.btnAddProduct.Name = "btnAddProduct";
+            this.btnAddProduct.Size = new System.Drawing.Size(98, 33);
+            this.btnAddProduct.TabIndex = 22;
+            this.btnAddProduct.Text = "Add";
+            this.btnAddProduct.UseVisualStyleBackColor = true;
+            this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
+            // 
             // MemberManagement
             // 
             this.MemberManagement.Controls.Add(this.label19);
@@ -357,6 +371,8 @@
             // 
             // btnEndClick
             // 
+            this.btnEndClick.Image = ((System.Drawing.Image)(resources.GetObject("btnEndClick.Image")));
+            this.btnEndClick.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEndClick.Location = new System.Drawing.Point(1034, 270);
             this.btnEndClick.Name = "btnEndClick";
             this.btnEndClick.Size = new System.Drawing.Size(98, 33);
@@ -367,6 +383,8 @@
             // 
             // btnDeleteClick
             // 
+            this.btnDeleteClick.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteClick.Image")));
+            this.btnDeleteClick.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDeleteClick.Location = new System.Drawing.Point(483, 215);
             this.btnDeleteClick.Name = "btnDeleteClick";
             this.btnDeleteClick.Size = new System.Drawing.Size(98, 33);
@@ -377,6 +395,8 @@
             // 
             // btnUpdateClick
             // 
+            this.btnUpdateClick.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdateClick.Image")));
+            this.btnUpdateClick.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUpdateClick.Location = new System.Drawing.Point(483, 172);
             this.btnUpdateClick.Name = "btnUpdateClick";
             this.btnUpdateClick.Size = new System.Drawing.Size(98, 33);
@@ -387,6 +407,8 @@
             // 
             // btnSearchClick
             // 
+            this.btnSearchClick.Image = ((System.Drawing.Image)(resources.GetObject("btnSearchClick.Image")));
+            this.btnSearchClick.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSearchClick.Location = new System.Drawing.Point(483, 129);
             this.btnSearchClick.Name = "btnSearchClick";
             this.btnSearchClick.Size = new System.Drawing.Size(98, 33);
@@ -397,6 +419,8 @@
             // 
             // btnAddClick
             // 
+            this.btnAddClick.Image = ((System.Drawing.Image)(resources.GetObject("btnAddClick.Image")));
+            this.btnAddClick.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAddClick.Location = new System.Drawing.Point(483, 86);
             this.btnAddClick.Name = "btnAddClick";
             this.btnAddClick.Size = new System.Drawing.Size(98, 33);
@@ -407,11 +431,14 @@
             // 
             // btnListClick
             // 
+            this.btnListClick.Image = global::eStoreClient.Properties.Resources.sync;
+            this.btnListClick.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnListClick.Location = new System.Drawing.Point(483, 43);
             this.btnListClick.Name = "btnListClick";
             this.btnListClick.Size = new System.Drawing.Size(98, 33);
             this.btnListClick.TabIndex = 13;
             this.btnListClick.Text = "Load List";
+            this.btnListClick.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnListClick.UseVisualStyleBackColor = true;
             this.btnListClick.Click += new System.EventHandler(this.btnListClick_Click);
             // 
@@ -550,12 +577,6 @@
             this.tblOrderManagement.Controls.Add(this.txtOrderDate);
             this.tblOrderManagement.Controls.Add(this.txtMemberIdOrder);
             this.tblOrderManagement.Controls.Add(this.label13);
-            this.tblOrderManagement.Controls.Add(this.btnCloseOrder);
-            this.tblOrderManagement.Controls.Add(this.btnDeleteOrder);
-            this.tblOrderManagement.Controls.Add(this.btnUpdateOrder);
-            this.tblOrderManagement.Controls.Add(this.btnSearchOrder);
-            this.tblOrderManagement.Controls.Add(this.btnAddOrder);
-            this.tblOrderManagement.Controls.Add(this.btnLoadOrder);
             this.tblOrderManagement.Controls.Add(this.txtFreight);
             this.tblOrderManagement.Controls.Add(this.txtOrderId);
             this.tblOrderManagement.Controls.Add(this.label14);
@@ -564,6 +585,12 @@
             this.tblOrderManagement.Controls.Add(this.label17);
             this.tblOrderManagement.Controls.Add(this.label18);
             this.tblOrderManagement.Controls.Add(this.dgvListOrder);
+            this.tblOrderManagement.Controls.Add(this.btnCloseOrder);
+            this.tblOrderManagement.Controls.Add(this.btnDeleteOrder);
+            this.tblOrderManagement.Controls.Add(this.btnUpdateOrder);
+            this.tblOrderManagement.Controls.Add(this.btnSearchOrder);
+            this.tblOrderManagement.Controls.Add(this.btnAddOrder);
+            this.tblOrderManagement.Controls.Add(this.btnLoadOrder);
             this.tblOrderManagement.Location = new System.Drawing.Point(4, 25);
             this.tblOrderManagement.Name = "tblOrderManagement";
             this.tblOrderManagement.Padding = new System.Windows.Forms.Padding(3);
@@ -622,66 +649,6 @@
             this.label13.Size = new System.Drawing.Size(74, 16);
             this.label13.TabIndex = 27;
             this.label13.Text = "MemberId: ";
-            // 
-            // btnCloseOrder
-            // 
-            this.btnCloseOrder.Location = new System.Drawing.Point(987, 255);
-            this.btnCloseOrder.Name = "btnCloseOrder";
-            this.btnCloseOrder.Size = new System.Drawing.Size(98, 33);
-            this.btnCloseOrder.TabIndex = 26;
-            this.btnCloseOrder.Text = "END";
-            this.btnCloseOrder.UseVisualStyleBackColor = true;
-            this.btnCloseOrder.Click += new System.EventHandler(this.btnCloseOrder_Click);
-            // 
-            // btnDeleteOrder
-            // 
-            this.btnDeleteOrder.Location = new System.Drawing.Point(538, 208);
-            this.btnDeleteOrder.Name = "btnDeleteOrder";
-            this.btnDeleteOrder.Size = new System.Drawing.Size(98, 33);
-            this.btnDeleteOrder.TabIndex = 25;
-            this.btnDeleteOrder.Text = "Delete";
-            this.btnDeleteOrder.UseVisualStyleBackColor = true;
-            this.btnDeleteOrder.Click += new System.EventHandler(this.btnDeleteOrder_Click);
-            // 
-            // btnUpdateOrder
-            // 
-            this.btnUpdateOrder.Location = new System.Drawing.Point(538, 165);
-            this.btnUpdateOrder.Name = "btnUpdateOrder";
-            this.btnUpdateOrder.Size = new System.Drawing.Size(98, 33);
-            this.btnUpdateOrder.TabIndex = 24;
-            this.btnUpdateOrder.Text = "Update";
-            this.btnUpdateOrder.UseVisualStyleBackColor = true;
-            this.btnUpdateOrder.Click += new System.EventHandler(this.btnUpdateOrder_Click);
-            // 
-            // btnSearchOrder
-            // 
-            this.btnSearchOrder.Location = new System.Drawing.Point(538, 124);
-            this.btnSearchOrder.Name = "btnSearchOrder";
-            this.btnSearchOrder.Size = new System.Drawing.Size(98, 33);
-            this.btnSearchOrder.TabIndex = 23;
-            this.btnSearchOrder.Text = "Search";
-            this.btnSearchOrder.UseVisualStyleBackColor = true;
-            this.btnSearchOrder.Click += new System.EventHandler(this.btnSearchOrder_Click);
-            // 
-            // btnAddOrder
-            // 
-            this.btnAddOrder.Location = new System.Drawing.Point(538, 75);
-            this.btnAddOrder.Name = "btnAddOrder";
-            this.btnAddOrder.Size = new System.Drawing.Size(98, 33);
-            this.btnAddOrder.TabIndex = 22;
-            this.btnAddOrder.Text = "Add";
-            this.btnAddOrder.UseVisualStyleBackColor = true;
-            this.btnAddOrder.Click += new System.EventHandler(this.btnAddOrder_Click);
-            // 
-            // btnLoadOrder
-            // 
-            this.btnLoadOrder.Location = new System.Drawing.Point(538, 28);
-            this.btnLoadOrder.Name = "btnLoadOrder";
-            this.btnLoadOrder.Size = new System.Drawing.Size(98, 33);
-            this.btnLoadOrder.TabIndex = 21;
-            this.btnLoadOrder.Text = "Load List";
-            this.btnLoadOrder.UseVisualStyleBackColor = true;
-            this.btnLoadOrder.Click += new System.EventHandler(this.btnLoadOrder_Click);
             // 
             // txtFreight
             // 
@@ -755,6 +722,79 @@
             this.dgvListOrder.RowTemplate.Height = 24;
             this.dgvListOrder.Size = new System.Drawing.Size(1221, 419);
             this.dgvListOrder.TabIndex = 0;
+            // 
+            // btnCloseOrder
+            // 
+            this.btnCloseOrder.Image = global::eStoreClient.Properties.Resources.shutdown;
+            this.btnCloseOrder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCloseOrder.Location = new System.Drawing.Point(987, 255);
+            this.btnCloseOrder.Name = "btnCloseOrder";
+            this.btnCloseOrder.Size = new System.Drawing.Size(98, 33);
+            this.btnCloseOrder.TabIndex = 26;
+            this.btnCloseOrder.Text = "END";
+            this.btnCloseOrder.UseVisualStyleBackColor = true;
+            this.btnCloseOrder.Click += new System.EventHandler(this.btnCloseOrder_Click);
+            // 
+            // btnDeleteOrder
+            // 
+            this.btnDeleteOrder.Image = global::eStoreClient.Properties.Resources.delete_button;
+            this.btnDeleteOrder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeleteOrder.Location = new System.Drawing.Point(538, 208);
+            this.btnDeleteOrder.Name = "btnDeleteOrder";
+            this.btnDeleteOrder.Size = new System.Drawing.Size(98, 33);
+            this.btnDeleteOrder.TabIndex = 25;
+            this.btnDeleteOrder.Text = "Delete";
+            this.btnDeleteOrder.UseVisualStyleBackColor = true;
+            this.btnDeleteOrder.Click += new System.EventHandler(this.btnDeleteOrder_Click);
+            // 
+            // btnUpdateOrder
+            // 
+            this.btnUpdateOrder.Image = global::eStoreClient.Properties.Resources.refresh_button;
+            this.btnUpdateOrder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUpdateOrder.Location = new System.Drawing.Point(538, 165);
+            this.btnUpdateOrder.Name = "btnUpdateOrder";
+            this.btnUpdateOrder.Size = new System.Drawing.Size(98, 33);
+            this.btnUpdateOrder.TabIndex = 24;
+            this.btnUpdateOrder.Text = "Update";
+            this.btnUpdateOrder.UseVisualStyleBackColor = true;
+            this.btnUpdateOrder.Click += new System.EventHandler(this.btnUpdateOrder_Click);
+            // 
+            // btnSearchOrder
+            // 
+            this.btnSearchOrder.Image = global::eStoreClient.Properties.Resources.search;
+            this.btnSearchOrder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSearchOrder.Location = new System.Drawing.Point(538, 124);
+            this.btnSearchOrder.Name = "btnSearchOrder";
+            this.btnSearchOrder.Size = new System.Drawing.Size(98, 33);
+            this.btnSearchOrder.TabIndex = 23;
+            this.btnSearchOrder.Text = "Search";
+            this.btnSearchOrder.UseVisualStyleBackColor = true;
+            this.btnSearchOrder.Click += new System.EventHandler(this.btnSearchOrder_Click);
+            // 
+            // btnAddOrder
+            // 
+            this.btnAddOrder.Image = global::eStoreClient.Properties.Resources.plus;
+            this.btnAddOrder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddOrder.Location = new System.Drawing.Point(538, 75);
+            this.btnAddOrder.Name = "btnAddOrder";
+            this.btnAddOrder.Size = new System.Drawing.Size(98, 33);
+            this.btnAddOrder.TabIndex = 22;
+            this.btnAddOrder.Text = "Add";
+            this.btnAddOrder.UseVisualStyleBackColor = true;
+            this.btnAddOrder.Click += new System.EventHandler(this.btnAddOrder_Click);
+            // 
+            // btnLoadOrder
+            // 
+            this.btnLoadOrder.Image = global::eStoreClient.Properties.Resources.sync;
+            this.btnLoadOrder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLoadOrder.Location = new System.Drawing.Point(538, 28);
+            this.btnLoadOrder.Name = "btnLoadOrder";
+            this.btnLoadOrder.Size = new System.Drawing.Size(98, 33);
+            this.btnLoadOrder.TabIndex = 21;
+            this.btnLoadOrder.Text = "Load List";
+            this.btnLoadOrder.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLoadOrder.UseVisualStyleBackColor = true;
+            this.btnLoadOrder.Click += new System.EventHandler(this.btnLoadOrder_Click);
             // 
             // eStoreClient
             // 
