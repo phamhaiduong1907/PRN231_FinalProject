@@ -34,6 +34,13 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+<<<<<<< HEAD
+=======
+            this.btnAddItem = new System.Windows.Forms.Button();
+            this.btnRemoveItem = new System.Windows.Forms.Button();
+            this.btnInvoice = new System.Windows.Forms.Button();
+            this.btnPayment = new System.Windows.Forms.Button();
+>>>>>>> d41c41faedc246ca3471cf207cb5c5a0e856d38f
             this.dgvCart = new System.Windows.Forms.DataGridView();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -97,6 +104,53 @@
             this.Column5.Name = "Column5";
             this.Column5.Width = 125;
             // 
+<<<<<<< HEAD
+=======
+            // btnAddItem
+            // 
+            this.btnAddItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddItem.Location = new System.Drawing.Point(979, 133);
+            this.btnAddItem.Name = "btnAddItem";
+            this.btnAddItem.Size = new System.Drawing.Size(116, 53);
+            this.btnAddItem.TabIndex = 1;
+            this.btnAddItem.Text = "Add Item";
+            this.btnAddItem.UseVisualStyleBackColor = true;
+            this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
+            // 
+            // btnRemoveItem
+            // 
+            this.btnRemoveItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemoveItem.Location = new System.Drawing.Point(318, 633);
+            this.btnRemoveItem.Name = "btnRemoveItem";
+            this.btnRemoveItem.Size = new System.Drawing.Size(141, 53);
+            this.btnRemoveItem.TabIndex = 2;
+            this.btnRemoveItem.Text = "Remove Item";
+            this.btnRemoveItem.UseVisualStyleBackColor = true;
+            this.btnRemoveItem.Click += new System.EventHandler(this.btnRemoveItem_Click);
+            // 
+            // btnInvoice
+            // 
+            this.btnInvoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInvoice.Location = new System.Drawing.Point(608, 633);
+            this.btnInvoice.Name = "btnInvoice";
+            this.btnInvoice.Size = new System.Drawing.Size(116, 53);
+            this.btnInvoice.TabIndex = 4;
+            this.btnInvoice.Text = "Invoice";
+            this.btnInvoice.UseVisualStyleBackColor = true;
+            this.btnInvoice.Click += new System.EventHandler(this.btnInvoiceClick);
+            // 
+            // btnPayment
+            // 
+            this.btnPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPayment.Location = new System.Drawing.Point(474, 633);
+            this.btnPayment.Name = "btnPayment";
+            this.btnPayment.Size = new System.Drawing.Size(116, 53);
+            this.btnPayment.TabIndex = 5;
+            this.btnPayment.Text = "Payment";
+            this.btnPayment.UseVisualStyleBackColor = true;
+            this.btnPayment.Click += new System.EventHandler(this.btnPayment_Click);
+            // 
+>>>>>>> d41c41faedc246ca3471cf207cb5c5a0e856d38f
             // dgvCart
             // 
             this.dgvCart.AllowUserToAddRows = false;
@@ -208,10 +262,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1099, 689);
             this.Controls.Add(this.dgvCart);
-            this.Controls.Add(this.btnSubtractionItem);
             this.Controls.Add(this.btnPayment);
             this.Controls.Add(this.btnInvoice);
-            this.Controls.Add(this.btnPlusItem);
             this.Controls.Add(this.btnRemoveItem);
             this.Controls.Add(this.btnAddItem);
             this.Controls.Add(this.dgvPayment);
@@ -228,10 +280,8 @@
         private System.Windows.Forms.DataGridView dgvPayment;
         private System.Windows.Forms.Button btnAddItem;
         private System.Windows.Forms.Button btnRemoveItem;
-        private System.Windows.Forms.Button btnPlusItem;
         private System.Windows.Forms.Button btnInvoice;
         private System.Windows.Forms.Button btnPayment;
-        private System.Windows.Forms.Button btnSubtractionItem;
         private System.Windows.Forms.DataGridView dgvCart;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;

@@ -20,7 +20,10 @@ namespace eStoreClient
             InitializeComponent();
             CenterToParent();
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> d41c41faedc246ca3471cf207cb5c5a0e856d38f
         public Invoice(Order order)
         {
             InitializeComponent();

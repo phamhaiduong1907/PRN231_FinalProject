@@ -58,8 +58,7 @@ namespace eStoreClient
                 UnitsInStock = p.UnitsInStock,
                 weight = p.weight
             }).ToList();
-            dgvPayment.Columns["ProductId"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            dgvPayment.Columns["ProductId"].Width = 0;
+            dgvPayment.Columns["ProductId"].Visible = false;
         }
 
         private void LoadCarts(IEnumerable<Cart> carts)
