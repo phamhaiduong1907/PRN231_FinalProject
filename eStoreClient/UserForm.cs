@@ -70,7 +70,7 @@ namespace eStoreClient
 
         private void btnPaymentOrderClick(object sender, EventArgs e)
         {
-            this.Hide();
+           
             Payment payment = new Payment();
             payment.Show();
         }
@@ -78,8 +78,7 @@ namespace eStoreClient
         private void btnView_Click(object sender, EventArgs e)
         {
             if(dgvOrderMember.SelectedRows.Count == 1)
-            {
-                this.Hide();
+            {               
                 Invoice invoice = new Invoice();
                 invoice.Show();
             }

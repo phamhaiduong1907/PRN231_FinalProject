@@ -192,9 +192,9 @@
             // 
             this.btnExport.Image = global::eStoreClient.Properties.Resources.file;
             this.btnExport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExport.Location = new System.Drawing.Point(673, 42);
+            this.btnExport.Location = new System.Drawing.Point(673, 32);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(115, 38);
+            this.btnExport.Size = new System.Drawing.Size(115, 48);
             this.btnExport.TabIndex = 0;
             this.btnExport.Text = " Export";
             this.btnExport.UseVisualStyleBackColor = true;
