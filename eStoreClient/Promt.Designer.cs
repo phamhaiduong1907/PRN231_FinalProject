@@ -30,46 +30,53 @@
         {
             this.dpkRequiredDate = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.btnOK = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // dpkRequiredDate
             // 
             this.dpkRequiredDate.CustomFormat = "yyyy-MM-dd";
+            this.dpkRequiredDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dpkRequiredDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dpkRequiredDate.Location = new System.Drawing.Point(179, 59);
+            this.dpkRequiredDate.Location = new System.Drawing.Point(179, 51);
             this.dpkRequiredDate.Name = "dpkRequiredDate";
-            this.dpkRequiredDate.Size = new System.Drawing.Size(220, 22);
+            this.dpkRequiredDate.Size = new System.Drawing.Size(220, 30);
             this.dpkRequiredDate.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(62, 62);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(37, 56);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 16);
+            this.label1.Size = new System.Drawing.Size(136, 25);
             this.label1.TabIndex = 1;
             this.label1.Text = "Required Date";
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Image = global::eStoreClient.Properties.Resources.delete_button2;
+            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancel.Location = new System.Drawing.Point(275, 97);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(78, 31);
+            this.btnCancel.TabIndex = 3;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancel.UseVisualStyleBackColor = true;
+            // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(155, 97);
+            this.btnOK.Image = global::eStoreClient.Properties.Resources.check_mark;
+            this.btnOK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOK.Location = new System.Drawing.Point(172, 97);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(78, 31);
             this.btnOK.TabIndex = 2;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(258, 97);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(78, 31);
-            this.btnCancel.TabIndex = 3;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // Promt
             // 
