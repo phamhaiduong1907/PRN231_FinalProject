@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Server.Models.DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,7 +14,7 @@ namespace eStoreClient
 {
     public partial class Invoice : Form
     {
-        private Order order; // Tạo một đối tượng Order để sử dụng
+        private ResponseOrderDTO order; // Tạo một đối tượng Order để sử dụng
 
         public Invoice()
         {
@@ -21,7 +22,7 @@ namespace eStoreClient
             CenterToParent();
         }
 
-        public Invoice(Order order)
+        public Invoice(ResponseOrderDTO order)
         {
             InitializeComponent();
             CenterToParent();
@@ -30,6 +31,12 @@ namespace eStoreClient
             {
                 btnExport.Enabled = false;
             }
+            txtMemberName.Text = order.MemberName;
+            txtOrderDate.Text = order.OrderDate.ToShortDateString();
+            txtOrderId.Text = order.OrderId.ToString();
+            txtTotal.Text = order.Total.ToString();
+            dgvBillIvoice.Columns.Clear();
+            dgvBillIvoice.DataSource = order.OrderDetails;
         }
 
         private void btnExport_Click(object sender, EventArgs e)
@@ -51,6 +58,13 @@ namespace eStoreClient
             {
                 doc.Print();
             }
+        }
+
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            UserForm userForm = new UserForm();
+            userForm.Show();
+            this.Close();
         }
     }
 }

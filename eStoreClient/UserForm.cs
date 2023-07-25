@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Server.Models.DTO;
+using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
@@ -32,7 +33,7 @@ namespace eStoreClient
             HttpClient client = new HttpClient();
             string result = client.GetAsync(link).Result.Content.ReadAsStringAsync().Result;
             Models.Member[] members = JsonSerializer.Deserialize<Models.Member[]>
-                (result, new JsonSerializerOptions { PropertyNameCaseInsensitive = true});
+                (result, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
             dgvMemberUser.DataSource = members;
         }
         public void LoadOrder()
@@ -41,7 +42,7 @@ namespace eStoreClient
             HttpClient client = new HttpClient();
             string result = client.GetAsync(link).Result.Content.ReadAsStringAsync().Result;
             Models.Order[] orders = JsonSerializer.Deserialize<Models.Order[]>
-                (result, new JsonSerializerOptions{ PropertyNameCaseInsensitive = true});
+                (result, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
             dgvOrderMember.DataSource = orders;
         }
 
@@ -70,17 +71,31 @@ namespace eStoreClient
 
         private void btnPaymentOrderClick(object sender, EventArgs e)
         {
-           
+
             Payment payment = new Payment();
             payment.Show();
         }
 
-        private void btnView_Click(object sender, EventArgs e)
+        private async void btnView_Click(object sender, EventArgs e)
         {
-            if(dgvOrderMember.SelectedRows.Count == 1)
-            {               
-                Invoice invoice = new Invoice();
-                invoice.Show();
+
+
+
+            if (dgvOrderMember.SelectedRows.Count == 1)
+            {
+                int orderId = (int)dgvOrderMember.SelectedRows[0].Cells[0].Value;
+                string url = $"http://localhost:5241/api/default/order/{orderId}";
+                HttpClient httpClient = new HttpClient();
+                string result = await httpClient.GetAsync(url).Result.Content.ReadAsStringAsync();
+                ResponseOrderDTO responseOrderDTO = JsonSerializer.Deserialize<ResponseOrderDTO>
+                    (result, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+                if (responseOrderDTO != null)
+                {
+                    this.Hide();
+                    Invoice invoice = new Invoice(responseOrderDTO);
+                    invoice.Show();
+                }
+
             }
             else
             {

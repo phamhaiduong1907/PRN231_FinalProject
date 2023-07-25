@@ -113,7 +113,7 @@ namespace eStoreClient
                 Country = txtCountry.Text,
                 Password = txtPassword.Text
             });
-            string msg = httpClient.PostAsync(url, new StringContent(content, Encoding.UTF8)).Result.Content.ReadAsStringAsync().Result;
+            string msg = httpClient.PostAsync(url, new StringContent(content, Encoding.UTF8, "application/json")).Result.Content.ReadAsStringAsync().Result;
             MessageBox.Show("Adding result " + msg);
         }
 
@@ -130,7 +130,7 @@ namespace eStoreClient
                 Country = txtCountry.Text,
                 Password = txtPassword.Text
             });
-            string msg = httpClient.PutAsync(url, new StringContent(content, Encoding.UTF8)).Result.Content.ReadAsStringAsync().Result;
+            string msg = httpClient.PutAsync(url, new StringContent(content, Encoding.UTF8, "application/json")).Result.Content.ReadAsStringAsync().Result;
             MessageBox.Show("Editing result " + msg);
         }
 
@@ -173,7 +173,7 @@ namespace eStoreClient
                 UnitPrice = txtUnitPrice.Text,
                 UnitsInStock = txtUnitInStock.Text
             });
-            string msg = httpClient.PostAsync(url, new StringContent(content, Encoding.UTF8)).Result.Content.ReadAsStringAsync().Result;
+            string msg = httpClient.PostAsync(url, new StringContent(content, Encoding.UTF8, "application/json")).Result.Content.ReadAsStringAsync().Result;
             MessageBox.Show("Adding result " + msg);
         }
 
@@ -214,7 +214,7 @@ namespace eStoreClient
                 UnitPrice = txtUnitPrice.Text,
                 UnitsInStock = txtUnitInStock.Text
             });
-            string msg = httpClient.PutAsync(url, new StringContent(content, Encoding.UTF8)).Result.Content.ReadAsStringAsync().Result;
+            string msg = httpClient.PutAsync(url, new StringContent(content, Encoding.UTF8, "application/json")).Result.Content.ReadAsStringAsync().Result;
             MessageBox.Show("Update result " + msg);
         }
 
@@ -257,7 +257,7 @@ namespace eStoreClient
                 ShippedDate = txtShippedDate.Text,
                 Freight = txtFreight.Text
             });
-            string msg = httpClient.PostAsync(url, new StringContent(content, Encoding.UTF8)).Result.Content.ReadAsStringAsync().Result;
+            string msg = httpClient.PostAsync(url, new StringContent(content, Encoding.UTF8, "application/json")).Result.Content.ReadAsStringAsync().Result;
             MessageBox.Show("Adding result " + msg);
         }
 
@@ -285,7 +285,7 @@ namespace eStoreClient
             }
         }
 
-        private void btnUpdateOrder_Click(object sender, EventArgs e)
+        private async void btnUpdateOrder_Click(object sender, EventArgs e)
         {
             string url = "http://localhost:5241/api/default/editorder";
             HttpClient httpClient = new HttpClient();
@@ -298,7 +298,8 @@ namespace eStoreClient
                 ShippedDate = txtShippedDate.Text,
                 Freight = txtFreight.Text
             });
-            string msg = httpClient.PostAsync(url, new StringContent(content, Encoding.UTF8)).Result.Content.ReadAsStringAsync().Result;
+            HttpResponseMessage httpResponseMessage = await httpClient.PutAsync(url, new StringContent(content, Encoding.UTF8, "application/json"));
+            string msg = await httpResponseMessage.Content.ReadAsStringAsync();
             MessageBox.Show("Adding result " + msg);
         }
 

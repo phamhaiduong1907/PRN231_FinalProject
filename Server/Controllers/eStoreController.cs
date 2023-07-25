@@ -171,6 +171,36 @@ namespace Server.Controllers
         {
             return _context.Orders.SingleOrDefault(o => o.OrderId == orderId);
         }
+        [HttpGet]
+        [Route("api/default/order/{orderId}")]
+        public ResponseOrderDTO GetOrderId(int orderId)
+        {
+            Order? order = _context.Orders
+                .Include(o => o.Member)
+                .Include(o => o.OrderDetails)
+                .ThenInclude(od => od.Product)
+                .Where(o => o.OrderId == orderId)
+                .FirstOrDefault();
+            if (order == null)
+                return null;
+            return new ResponseOrderDTO
+            {
+                OrderId = order.OrderId,
+                MemberName = order.Member.Email,
+                OrderDate = order.OrderDate.Value,
+                ShippedDate = order.ShippedDate,
+                Total = order.OrderDetails
+                .Sum(od => od.UnitPrice * od.Quantity * (od.Discount.HasValue ? (1 - od.Discount.Value / 100) : 1))
+                .Value,
+                OrderDetails = order.OrderDetails.Select(od => new ResponseOrderDetailDTO
+                {
+                    ProductName = od.Product.ProductName,
+                    Quantity = od.Quantity.Value,
+                    UnitPrice = od.Product.UnitPrice.Value,
+                    Discount = od.Discount
+                }).ToList()
+            };
+        }
         [HttpPost]
         [Route("api/default/addorder")]
         public bool AddOrder([FromBody] Models.Order order)
