@@ -102,7 +102,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::eStoreClient.Properties.Resources.user1;
-            this.pictureBox1.Location = new System.Drawing.Point(750, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(739, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(34, 32);
             this.pictureBox1.TabIndex = 17;
@@ -123,7 +123,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(667, 0);
+            this.label14.Location = new System.Drawing.Point(656, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(77, 32);
             this.label14.TabIndex = 14;
@@ -292,7 +292,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::eStoreClient.Properties.Resources.user1;
-            this.pictureBox2.Location = new System.Drawing.Point(750, 0);
+            this.pictureBox2.Location = new System.Drawing.Point(741, 0);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(34, 32);
             this.pictureBox2.TabIndex = 21;
