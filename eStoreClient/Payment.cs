@@ -167,7 +167,7 @@ namespace eStoreClient
                         Quantity = c.Quantity,
                     }).ToList()
                 });
-                HttpResponseMessage httpResponseMessage = await client.PostAsync(url, new StringContent(content, Encoding.UTF8, "application.json"));
+                HttpResponseMessage httpResponseMessage = await client.PostAsync(url, new StringContent(content, Encoding.UTF8, "application/json"));
                 if(await httpResponseMessage.Content.ReadAsStringAsync() == "true")
                 {
                     Carts.Clear();
@@ -213,6 +213,13 @@ namespace eStoreClient
                 };
                 HttpResponseMessage httpResponseMessage = await client.SendAsync(request);
             }
+        }
+
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            UserForm form = new UserForm();
+            form.Show();
         }
     }
 }

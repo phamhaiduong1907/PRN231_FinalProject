@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Server.Models.DTO;
+using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
@@ -75,13 +76,22 @@ namespace eStoreClient
             payment.Show();
         }
 
-        private void btnView_Click(object sender, EventArgs e)
+        private async void btnView_Click(object sender, EventArgs e)
         {
-            if(dgvOrderMember.SelectedRows.Count == 1)
+            if (dgvOrderMember.SelectedRows.Count == 1)
             {
-                this.Hide();
-                Invoice invoice = new Invoice();
-                invoice.Show();
+                int orderId = (int)dgvOrderMember.SelectedRows[0].Cells[0].Value;
+                string url = $"http://localhost:5241/api/default/order/{orderId}";
+                HttpClient httpClient = new HttpClient();
+                string result = await httpClient.GetAsync(url).Result.Content.ReadAsStringAsync();
+                ResponseOrderDTO responseOrderDTO = JsonSerializer.Deserialize<ResponseOrderDTO>
+                    (result, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+                if(responseOrderDTO != null)
+                {
+                    this.Hide();
+                    Invoice invoice = new Invoice(responseOrderDTO);
+                    invoice.Show();
+                }
             }
             else
             {
